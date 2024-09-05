@@ -18,8 +18,6 @@ __pycache__/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# AWS
-.github/workflows/aws.yaml
 
 # C extensions
 #*.so
