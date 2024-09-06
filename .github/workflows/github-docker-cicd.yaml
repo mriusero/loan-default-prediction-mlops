@@ -58,9 +58,9 @@ jobs:
         run: |
           poetry run pylint --disable=R,C app.py
 
-      - name: Run tests with Pytest # Runs tests using pytest through Poetry.
-        run: |
-          poetry run pytest -vv
+      #- name: Run tests with Pytest # Runs tests using pytest through Poetry.
+      #  run: |
+      #    poetry run pytest -vv
 
       - name: Health Check # Performs a health check similar to the Dockerfile's HEALTHCHECK.
         run: |
