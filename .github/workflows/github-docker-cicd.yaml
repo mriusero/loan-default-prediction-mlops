@@ -69,6 +69,7 @@ jobs:
           echo "email = \"\""  >> ~/.streamlit/credentials.toml
           poetry run streamlit run app.py
           curl --fail http://localhost:8501/_stcore/health || exit 1
+          ^C
       
   
 
