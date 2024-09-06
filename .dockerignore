@@ -1,4 +1,15 @@
-test.py
-readme.md
+# Mac OS
+.DS_Store/
+
+# WORKSPACE
+README.md
+LICENSE
+
+## --> directories
 .git*
-.venv/
+/notebooks
+/data/raw
+/tests
+
+
+
