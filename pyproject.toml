@@ -1,0 +1,26 @@
+[tool.poetry]
+package-mode = false
+name = "projet-sda-mlops"
+version = "0.1.0"
+description = "1st try of poetry"
+authors = ["mriusero <marius.ayrault@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pytest = "^8.3.2"
+black = "^24.8.0"
+mypy = "^1.11.2"
+watchdog = "^4.0.1"
+numpy = "^2.1.1"
+streamlit = "^1.37.1"
+pylint = "^3.2.7"
+
+[tool.poetry.group.dev.dependencies]
+plotly = "^5.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
