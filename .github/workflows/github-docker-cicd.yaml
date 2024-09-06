@@ -64,6 +64,9 @@ jobs:
 
       - name: Health Check # Performs a health check similar to the Dockerfile's HEALTHCHECK.
         run: |
+          mkdir -p ~/.streamlit/ && \
+          echo "[general]"  > ~/.streamlit/credentials.toml && \
+          echo "email = \"\""  >> ~/.streamlit/credentials.toml
           poetry run streamlit run app.py
           curl --fail http://localhost:8501/_stcore/health || exit 1
       
