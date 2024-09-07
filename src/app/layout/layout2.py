@@ -7,4 +7,11 @@ def page_2():
 
     loader = CSVLoader('./data/raw')
     dataframes = loader.load_csv_files()
-    st.write(dataframes['Loan_Data'])
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("## #Raw Data_")
+        st.dataframe(dataframes['Loan_Data'])
+    with col2:
+        st.markdown("## #Statistics_")
+        st.dataframe(dataframes['Loan_Data'].describe())
