@@ -1,5 +1,6 @@
-import os
 import gc
+import os
+
 import streamlit as st
 
 update_message = 'Data loaded'
@@ -23,7 +24,7 @@ def main_layout():
     st.sidebar.markdown("# --- Project title ---\n\n"
                         " ## *'Field'*\n")
     page = st.sidebar.radio("Project_", ["#0 Introduction_",
-                                         "#1 Empty page_",
+                                         "#1 Exploratory Data Analysis_",
                                          "#2 Empty page_",
                                          "#3 Empty page_",
                                          "#4 Empty page_",
@@ -66,7 +67,7 @@ def main_layout():
 
     if page == "#0 Empty page_":
         page_0()
-    elif page == "#1 Empty page_":
+    elif page == "#1 Exploratory Data Analysis_":
         page_1()
     elif page == "#2 Empty page_":
         page_2()

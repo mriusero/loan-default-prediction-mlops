@@ -7,9 +7,7 @@ LICENSE
 
 ## --> directories
 .git*
-/notebooks
-/data/raw
-/tests
-
-
-
+data/raw
+notebooks/
+mlruns/
+tests/
