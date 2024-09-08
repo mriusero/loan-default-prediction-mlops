@@ -4,7 +4,6 @@ import tempfile
 import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
-import mlflow.xgboost
 import optuna
 import streamlit as st
 import pandas as pd
@@ -12,7 +11,7 @@ import warnings
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay, roc_auc_score, average_precision_score, f1_score, recall_score, precision_score
-from xgboost import XGBClassifier
+import lightgbm as lgb
 
 def configure_mlflow(experiment_name="Default"):
     """Configure MLflow to use a specific experiment."""
@@ -23,7 +22,7 @@ class ModelPipeline:
         """
         Initialize the model pipeline.
 
-        :param model_type: Type of the model ('random_forest', 'logistic_regression' or 'xgboost').
+        :param model_type: Type of the model ('random_forest', 'logistic_regression', 'lightgbm').
         :param params: Dictionary of hyperparameters for the model.
         :param exp_name: Name of the MLflow experiment.
         :param save_path: Path to save the trained model locally.
@@ -42,8 +41,8 @@ class ModelPipeline:
             self.model = RandomForestClassifier(**params)
         elif self.model_type == 'logistic_regression':
             self.model = LogisticRegression(**params)
-        elif self.model_type == 'xgboost':
-            self.model = XGBClassifier(**params)
+        elif self.model_type == 'lightgbm':
+            self.model = lgb.LGBMClassifier(**params)
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported.")
 
@@ -116,18 +115,11 @@ class ModelPipeline:
             signature = mlflow.models.infer_signature(X_sample, self.model.predict(X_sample))
 
             # Log model with signature
-            if self.model_type == 'xgboost':
-                mlflow.xgboost.log_model(
-                    xgb_model=self.model,
-                    artifact_path="model",
-                    signature=signature
-                )
-            else:
-                mlflow.sklearn.log_model(
-                    sk_model=self.model,
-                    artifact_path="model",
-                    signature=signature
-                )
+            mlflow.sklearn.log_model(
+                sk_model=self.model,
+                artifact_path="model",
+                signature=signature
+            )
             mlflow.log_artifact(new_file_path)
             print(f"------ local model file '{new_file_path}' logged to MLflow as an artifact.")
 
@@ -165,15 +157,12 @@ class ModelPipeline:
                 'C': trial.suggest_float('C', 1e-3, 1e2, log=True),
                 'max_iter': trial.suggest_int('max_iter', 100, 1000)
             }
-        elif self.model_type == 'xgboost':
+        elif self.model_type == 'lightgbm':
             params = {
                 'n_estimators': trial.suggest_int('n_estimators', 50, 200),
-                'max_depth': trial.suggest_int('max_depth', 3, 15),
-                'learning_rate': trial.suggest_float('learning_rate', 1e-3, 1e-1, log=True),
-                'gamma': trial.suggest_float('gamma', 0, 5),
-                'subsample': trial.suggest_float('subsample', 0.5, 1.0),
-                'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1.0),
-                'random_state': 42
+                'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.3),
+                'num_leaves': trial.suggest_int('num_leaves', 20, 100),
+                'max_depth': trial.suggest_int('max_depth', -1, 50)
             }
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported for optimization.")
@@ -279,7 +268,7 @@ class ModelPipeline:
     @staticmethod
     def load_model(model_uri):
         """Load a model from MLflow."""
-        return mlflow.sklearn.load_model(model_uri) if 'xgboost' not in model_uri else mlflow.xgboost.load_model(model_uri)
+        return mlflow.sklearn.load_model(model_uri)
 
     def display_results_on_streamlit(self, metrics, X_val, y_val):
         """Display the model's parameters, accuracy, and confusion matrix on Streamlit."""

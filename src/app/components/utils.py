@@ -1,5 +1,5 @@
 import streamlit as st
-from ...models import run_logr_pipeline, run_rf_pipeline, run_xgboost_pipeline
+from ...models import run_logr_pipeline, run_rf_pipeline, run_xgboost_pipeline, run_lgb_pipeline
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.pipeline import Pipeline
@@ -66,7 +66,7 @@ def handle_models():
     col1, col2, col3 = st.columns([4, 3, 2])
 
     with col1:
-        model_name = st.selectbox("Choose a model", ["LogisticRegression", "RandomForestClassifier", "XgBoost"])
+        model_name = st.selectbox("Choose a model", ["LogisticRegression", "RandomForestClassifier", "XgBoost", "LightGBM"])
 
     with col2:
         n_trials = st.number_input("Trials number for optimization if True", min_value=1, max_value=100, value=10)
@@ -103,4 +103,7 @@ def handle_models():
 
         if model_name == 'XgBoost':
             run_xgboost_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
+
+        if model_name == 'LightGBM':
+            run_lgb_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
