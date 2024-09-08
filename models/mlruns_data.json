@@ -1,0 +1,186 @@
+{
+    "experiments": [
+        {
+            "experiment_id": "575859165706313920",
+            "experiment_name": "exp_LogisticRegression",
+            "runs": [
+                {
+                    "run_id": "76a505b59d6746c8b28dd2d4c731bde9",
+                    "run_name": "marvelous-shrike-560",
+                    "metrics": {
+                        "training_score": "1725754861310 0.975 0",
+                        "training_roc_auc": "1725754861034 0.9981238273921201 0",
+                        "accuracy_score_X_test": "1725754864313 1.0 0",
+                        "accuracy": "1725754864320 1.0 0",
+                        "training_accuracy_score": "1725754861034 0.975 0",
+                        "training_precision_score": "1725754861034 0.9767857142857144 0",
+                        "training_log_loss": "1725754861034 0.13563188261551437 0",
+                        "training_f1_score": "1725754861034 0.9749882794186592 0",
+                        "training_recall_score": "1725754861034 0.975 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "42",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "200",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "94bdb2c52d91d66cecce4e79e7302a6bde78b67c",
+                        "mlflow.runName": "marvelous-shrike-560",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"76a505b59d6746c8b28dd2d4c731bde9\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 00:21:01.313672\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"bb975ff2a4404041948b1dae73b53c65\"}]",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_003"
+                    },
+                    "artifacts": [
+                        "confusion_matrix.png",
+                        "training_log.txt",
+                        "logistic_regression_03.pkl",
+                        "model",
+                        "metric_info.json",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
+                    "run_id": "datasets",
+                    "run_name": "",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {},
+                    "artifacts": []
+                },
+                {
+                    "run_id": "6971057ec84f48f0946c19b3de51e087",
+                    "run_name": "delightful-gull-838",
+                    "metrics": {
+                        "accuracy": "1725752475923 1.0 0"
+                    },
+                    "params": {
+                        "random_state": "42",
+                        "max_iter": "200",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "94bdb2c52d91d66cecce4e79e7302a6bde78b67c",
+                        "mlflow.runName": "delightful-gull-838",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_001"
+                    },
+                    "artifacts": [
+                        "confusion_matrix.png",
+                        "training_log.txt",
+                        "logistic_regression_01.pkl"
+                    ]
+                },
+                {
+                    "run_id": "3f06f413c9154874b078a68931d6215e",
+                    "run_name": "peaceful-ant-95",
+                    "metrics": {
+                        "training_score": "1725754195453 0.975 0",
+                        "training_roc_auc": "1725754195125 0.9981238273921201 0",
+                        "accuracy": "1725754199288 1.0 0",
+                        "training_accuracy_score": "1725754195125 0.975 0",
+                        "training_precision_score": "1725754195125 0.9767857142857144 0",
+                        "training_log_loss": "1725754195125 0.13563188261551437 0",
+                        "training_f1_score": "1725754195125 0.9749882794186592 0",
+                        "training_recall_score": "1725754195125 0.975 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "42",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "200",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "94bdb2c52d91d66cecce4e79e7302a6bde78b67c",
+                        "mlflow.runName": "peaceful-ant-95",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"3f06f413c9154874b078a68931d6215e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 00:09:55.460588\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"165b434cf4354a6dbbdcad9b004a5a48\"}]",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_002"
+                    },
+                    "artifacts": [
+                        "confusion_matrix.png",
+                        "training_log.txt",
+                        "logistic_regression_02.pkl",
+                        "model",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                }
+            ]
+        },
+        {
+            "experiment_id": "0",
+            "experiment_name": "Default",
+            "runs": []
+        },
+        {
+            "experiment_id": ".trash",
+            "experiment_name": "",
+            "runs": []
+        },
+        {
+            "experiment_id": "530633257183300827",
+            "experiment_name": "exp_RandomForestClassifier",
+            "runs": [
+                {
+                    "run_id": "8a1b570631ba421c8e0c29c2adc8bcae",
+                    "run_name": "zealous-snake-187",
+                    "metrics": {
+                        "accuracy": "1725754136919 1.0 0"
+                    },
+                    "params": {
+                        "max_depth": "5",
+                        "random_state": "42",
+                        "n_estimators": "100"
+                    },
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "94bdb2c52d91d66cecce4e79e7302a6bde78b67c",
+                        "mlflow.runName": "zealous-snake-187",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "random_forest_001"
+                    },
+                    "artifacts": [
+                        "confusion_matrix.png",
+                        "training_log.txt",
+                        "random_forest_01.pkl"
+                    ]
+                }
+            ]
+        }
+    ]
+}

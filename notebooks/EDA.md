@@ -1,12 +1,4 @@
-import streamlit as st
-import pandas as pd
-
-def page_1():
-    st.markdown('<div class="header">#1 Exploratory Data Analysis_</div>', unsafe_allow_html=True)
-    st.text("Here is the Jupyter Notebook of exploratory data analysis phase.")
-    st.markdown("---")
-    st.markdown("""
-# Notebook Overview
+# Exploratory Data Analysis (EDA) Notebook Overview
 
 This notebook performs an exploratory data analysis (EDA) on the **Loan_Data.csv** dataset. The primary objective is to understand the dataset's structure, identify any underlying patterns, detect outliers, and visualize the relationships between different variables. This analysis is particularly useful for developing predictive models for loan default risk and potential fraud detection.
 
@@ -28,7 +20,7 @@ The analysis begins by loading the dataset and providing an overview of its stru
 
 
 ```python
-print("------------------ Loan_Data.csv ------------------")
+print("------------------ Loan_Data.csv ------------------\n")
 df = pd.read_csv('../data/raw/Loan_Data.csv')
 df.info()
 ```
@@ -133,9 +125,13 @@ def plot_pairplot(df):
 
 plot_pairplot(df)
 ```
-""")
-    st.image('notebooks/output_9_0.png')
-    st.markdown("""
+
+
+
+![png](f'{output_9_0.png}')
+    
+
+
 ## Class Imbalance
 
 The `check_class_imbalance()` function checks for class imbalance in the `default` variable:
@@ -223,21 +219,44 @@ detect_missing_and_outliers(df)
      Series([], dtype: int64)
     
     Outliers for loan_amt_outstanding:
-""")
-    st.image('notebooks/output_13_1.png')
-    st.markdown("""
+
+
+
+    
+![png](output_13_1.png)
+    
+
+
+    
     Outliers for total_debt_outstanding:
-""")
-    st.image('notebooks/output_13_3.png')
-    st.markdown("""
+
+
+
+    
+![png](output_13_3.png)
+    
+
+
+    
     Outliers for income:
-""")
-    st.image('notebooks/output_13_5.png')
-    st.markdown("""
+
+
+
+    
+![png](output_13_5.png)
+    
+
+
+    
     Outliers for fico_score:
-    """)
-    st.image('notebooks/output_13_7.png')
-    st.markdown("""
+
+
+
+    
+![png](output_13_7.png)
+    
+
+
 ## Correlation Analysis
 
 The `plot_correlation_matrix_and_histogram()` function analyzes the correlations between variables:
@@ -270,14 +289,14 @@ def plot_correlation_matrix_and_histogram(df):
     plt.show()
 
 plot_correlation_matrix_and_histogram(df)
-```    
-""")
-    st.image('notebooks/output_15_0.png')
-    st.markdown("""
+```
+
+
+    
+![png](output_15_0.png)
+    
+
+
 ## Summary
 
 This EDA provides a comprehensive understanding of the data and prepares the groundwork for further analysis and modeling. Future steps might involve feature engineering, addressing class imbalance, and selecting appropriate modeling techniques based on the findings from this analysis.
-    
-""")
-
-
