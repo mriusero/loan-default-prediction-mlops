@@ -5,7 +5,6 @@ from sklearn.datasets import load_iris
 
 from .skeleton import ModelPipeline
 
-
 def run_logr_pipeline(optimize, n_trials, exp_name):
     """
     Run a pipeline for LogisticRegression using ModelPipeline.
@@ -16,8 +15,9 @@ def run_logr_pipeline(optimize, n_trials, exp_name):
     :param n_trials: Number of trials for hyperparameter optimization if optimize is True.
     """
     # For Template
-    data = load_iris()
-    X, y = data.data, data.target
+    #data = load_iris()
+    #X, y = data.data, data.target
+
 
     # Default
     lr_params = {
@@ -31,11 +31,9 @@ def run_logr_pipeline(optimize, n_trials, exp_name):
                              save_path=f'./models/logistic_regression.pkl')
 
     # Execute pipeline (with or without hyperparameters optimization)
-    pipeline.run_pipeline(X, y, optimize=optimize, n_trials=n_trials)
+    pipeline.run_pipeline(optimize=optimize, n_trials=n_trials)
 
-    X_new = [[5.1, 3.5, 1.4, 0.2]]
-    predictions = pipeline.predict(X_new)
-    st.write("Prédictions avec LogisticRegression :", predictions)
+
 
 
 

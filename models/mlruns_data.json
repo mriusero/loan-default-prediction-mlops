@@ -388,6 +388,55 @@
                     ]
                 },
                 {
+                    "run_id": "421bc6b4026f453a95744b15e79eaa3e",
+                    "run_name": "victorious-fawn-811",
+                    "metrics": {
+                        "training_score": "1725807932669 0.975 0",
+                        "training_roc_auc": "1725807932420 0.9981238273921201 0",
+                        "accuracy_score_X_test": "1725807935618 1.0 0",
+                        "training_accuracy_score": "1725807932420 0.975 0",
+                        "training_precision_score": "1725807932420 0.9767857142857144 0",
+                        "training_log_loss": "1725807932420 0.13563188261551437 0",
+                        "training_f1_score": "1725807932420 0.9749882794186592 0",
+                        "training_recall_score": "1725807932420 0.975 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "42",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "200",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
+                        "mlflow.runName": "victorious-fawn-811",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"421bc6b4026f453a95744b15e79eaa3e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 15:05:32.672423\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"378a2f2bf3834b059932883550ab216e\"}]",
+                        "experiment_name": "exp_LogisticRegression",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_000"
+                    },
+                    "artifacts": [
+                        "model",
+                        "metric_info.json",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
                     "run_id": "60a9c7e16ab74bfb83ab18c175524bfb",
                     "run_name": "unleashed-seal-432",
                     "metrics": {

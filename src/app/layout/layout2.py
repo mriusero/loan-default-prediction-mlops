@@ -1,5 +1,5 @@
 import streamlit as st
-
+import numpy as np
 
 def page_2():
     st.markdown('<div class="header">#2 Feature Engineering_</div>', unsafe_allow_html=True)
@@ -33,6 +33,12 @@ def page_2():
             nan_percentage = df.isna().mean() * 100
             st.markdown("### Pourcentage de NaN par colonne")
             for column, percentage in nan_percentage.items():
+                st.text(f"{percentage:.2f} : {column} %")
+
+            # Pourcentage de valeurs infinies
+            infinite_percentage = (np.isinf(df).sum() / len(df)) * 100
+            st.markdown("### Pourcentage de valeurs infinies par colonne")
+            for column, percentage in infinite_percentage.items():
                 st.text(f"{percentage:.2f} : {column} %")
 
     # Utilisation de la fonction pour chaque colonne

@@ -1,4 +1,4 @@
-from .components import github_button
+from .components import github_button, get_data_splits
 from .layout import page_0, page_1, page_2, page_3, page_4, page_5
 from .streamlit_app import main_layout
 

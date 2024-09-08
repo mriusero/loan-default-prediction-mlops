@@ -6,10 +6,12 @@ import mlflow
 import mlflow.sklearn
 import optuna
 import streamlit as st
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
+
 
 def configure_mlflow(experiment_name="Default"):
     """Configure MLflow to use a specific experiment."""
@@ -48,12 +50,12 @@ class ModelPipeline:
             raise ValueError("Model is not initialized. Call 'initialize_model()' first.")
         self.model.fit(X_train, y_train)
 
-    def validate(self, X_test, y_test):
+    def validate(self, X_val, y_val):
         """Validate the model and return accuracy."""
         if self.model is None:
             raise ValueError("Model is not initialized. Call 'initialize_model()' first.")
-        y_pred = self.model.predict(X_test)
-        return accuracy_score(y_test, y_pred)
+        y_pred = self.model.predict(X_val)
+        return accuracy_score(y_val, y_pred)
 
     def log_params(self):
         """Log model parameters to MLflow."""
@@ -104,7 +106,7 @@ class ModelPipeline:
         next_version = max(version_numbers, default=0) + 1  # Start versioning at 01
         return os.path.join(directory, f"{base_name_no_ext}_{next_version:02d}{ext}")
 
-    def objective(self, trial, X_train, y_train, X_test, y_test):
+    def objective(self, trial, X_train, y_train, X_val, y_val):
         """
         Objective function for Optuna to optimize hyperparameters.
 
@@ -132,24 +134,28 @@ class ModelPipeline:
 
         self.initialize_model(params)
         self.train(X_train, y_train)
-        accuracy = self.validate(X_test, y_test)
+        accuracy = self.validate(X_val, y_val)
         return 1 - accuracy  # Minimize 1 - accuracy to maximize accuracy
 
-    def optimize_hyperparameters(self, X_train, y_train, X_test, y_test, n_trials=10):
+    def optimize_hyperparameters(self, X_train, y_train, X_val, y_val, n_trials=10):
         """Optimize hyperparameters using Optuna."""
         study = optuna.create_study(direction='minimize')
-        study.optimize(lambda trial: self.objective(trial, X_train, y_train, X_test, y_test), n_trials=n_trials)
+        study.optimize(lambda trial: self.objective(trial, X_train, y_train, X_val, y_val), n_trials=n_trials)
         self.params = study.best_params
         st.write("Best hyperparameters found: ", self.params)
 
-    def run_pipeline(self, X, y, optimize=False, n_trials=10):
+    def run_pipeline(self, optimize=False, n_trials=10):
         """Run the complete ML pipeline."""
         print(f"\n-------- Machine Learning Experience pipeline ---------")
         print(f"Experience: '{self.experiment_name}'")
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+        from src.app import get_data_splits
+        X_train, y_train, X_val, y_val, X_test, y_test = get_data_splits()
+
+        #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
         if optimize:
-            self.optimize_hyperparameters(X_train, y_train, X_test, y_test, n_trials)
+            self.optimize_hyperparameters(X_train, y_train, X_val, y_val, n_trials)
 
         # Use mlflow.autolog to automatically log parameters, metrics, and model
         mlflow.autolog(log_input_examples=True, log_model_signatures=True)
@@ -157,7 +163,7 @@ class ModelPipeline:
         with mlflow.start_run() as run:
             self.initialize_model()  # Use best params if optimized
             self.train(X_train, y_train)
-            accuracy = self.validate(X_test, y_test)
+            accuracy = self.validate(X_val, y_val)
 
             # Log additional custom tags
             mlflow.set_tag("model_version", f'{self.model_type}_{self.get_next_version()}')
@@ -166,7 +172,10 @@ class ModelPipeline:
             print("Experience completed successfully!")
 
             # Display results on Streamlit
-            self.display_results_on_streamlit(accuracy, X_test, y_test)
+            self.display_results_on_streamlit(accuracy, X_val, y_val)
+
+        predictions = self.predict(X_test)
+        st.write(f"Predictions {self.experiment_name}:", predictions)
 
     def get_next_version(self):
         """Get the next version number for the model."""
@@ -178,17 +187,26 @@ class ModelPipeline:
         return f"{next_version:03d}"  # Zero-padded to 3 digits
 
     def predict(self, X):
-        """Predict using the trained model."""
+        """Predict using the trained model and return a DataFrame with customer_id and predictions."""
         if self.model is None:
             raise ValueError("Model is not initialized or trained.")
-        return self.model.predict(X)
+
+        if 'customer_id' not in X.columns:
+            raise ValueError("The input DataFrame X must contain a 'customer_id' column.")
+
+        predictions = self.model.predict(X)
+
+        return pd.DataFrame({
+            'customer_id': X['customer_id'],
+            'prediction': predictions
+        })
 
     @staticmethod
     def load_model(model_uri):
         """Load a model from MLflow."""
         return mlflow.sklearn.load_model(model_uri)
 
-    def display_results_on_streamlit(self, accuracy, X_test, y_test):
+    def display_results_on_streamlit(self, accuracy, X_val, y_val):
         """Display the model's parameters, accuracy, and confusion matrix on Streamlit."""
         st.write(f"## Experiment: {self.experiment_name}")
         st.write(f"### Model Type: {self.model_type}")
@@ -201,8 +219,8 @@ class ModelPipeline:
             st.write(f"Accuracy: {accuracy:.4f}")
         with col3:
             st.write("### Confusion Matrix_:")
-            y_pred = self.predict(X_test)
-            cm = confusion_matrix(y_test, y_pred)
+            y_pred = self.predict(X_val).drop('customer_id', axis=1)
+            cm = confusion_matrix(y_val, y_pred)
             disp = ConfusionMatrixDisplay(confusion_matrix=cm)
             fig, ax = plt.subplots()
             disp.plot(ax=ax)

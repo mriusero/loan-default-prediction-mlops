@@ -64,14 +64,16 @@ class Preprocessor:
         for key, df in dataframes.items():
             df['debt_to_income_ratio'] = df['total_debt_outstanding'] / df['income']
             df['credit_to_income_ratio'] = df['loan_amt_outstanding'] / df['income']
-            df['credit_lines_per_year'] = df['credit_lines_outstanding'] / df['years_employed']
+            #df['credit_lines_per_year'] = df['credit_lines_outstanding'] / df['years_employed']
             df['fico_score_diff'] = df['fico_score'] - 700
-            df['debt_per_credit_line'] = df['total_debt_outstanding'] / df['credit_lines_outstanding']
-            df['employment_per_credit_line'] = df['years_employed'] / df['credit_lines_outstanding']
+            #df['debt_per_credit_line'] = df['total_debt_outstanding'] / df['credit_lines_outstanding']
+            #df['employment_per_credit_line'] = df['years_employed'] / df['credit_lines_outstanding']
             df['normalized_fico_score'] = (df['fico_score'] - df['fico_score'].min()) / (
                         df['fico_score'].max() - df['fico_score'].min())
 
+            enriched_dfs[key] = df.replace([np.inf, -np.inf], np.nan).dropna()
             enriched_dfs[key] = df.dropna()
+
         return enriched_dfs
 
     def split_data(self, dataframes, test_size=0.2, val_size=0.2, random_state=42):
@@ -90,7 +92,7 @@ class Preprocessor:
 
             split_dfs[f'{key}_train'] = pd.concat([X_train, y_train], axis=1)
             split_dfs[f'{key}_val'] = pd.concat([X_val, y_val], axis=1)
-            split_dfs[f'{key}_test'] = pd.concat([X_test, y_test], axis=1).drop('default', axis=1)
+            split_dfs[f'{key}_test'] = pd.concat([X_test, y_test], axis=1)
 
         return split_dfs
 
