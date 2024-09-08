@@ -4,6 +4,7 @@ import os
 import streamlit as st
 
 from .components import start_mlflow_ui
+from ..visualization import DataVisualizer
 
 update_message = 'Data loaded'
 display = ""
@@ -64,8 +65,9 @@ def main_layout():
         st.text("")
         st.text("")
         st.text("")
-        #ata = DataVisualizer()
-        #t.session_state.data = data
+        st.text("Data Loading")
+        data = DataVisualizer()
+        st.session_state.data = data
 
     st.markdown('---')
 

@@ -125,7 +125,7 @@ def save_data_to_json(data, output_file="models/mlruns_data.json"):
     """Save the data to a local JSON file."""
     with open(output_file, 'w') as json_file:
         json.dump(data, json_file, indent=4)
-    print(f"Data successfully saved to {output_file}")
+    print(f"# utils.py - Data successfully loaded to {output_file}")
 
 def start_mlflow_ui(host="localhost", port=5001):
     """

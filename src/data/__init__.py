@@ -1,3 +1,3 @@
-from .data_loader import CSVLoader
+from .data_loader import load_csv_files
 
-__all__ = ["CSVLoader"]
+__all__ = ["load_csv_files"]

@@ -22,6 +22,8 @@ psutil = "^6.0.0"
 seaborn = "^0.13.2"
 nbformat = "^5.10.4"
 nbconvert = "^7.16.4"
+statsmodels = "^0.14.2"
+plotly-express = "^0.4.1"
 
 [tool.poetry.group.dev.dependencies]
 plotly = "^5.24.0"
