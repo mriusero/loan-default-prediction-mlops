@@ -1,298 +1,64 @@
 {
     "experiments": [
         {
-            "experiment_id": "541924689781010332",
+            "experiment_id": "0",
+            "experiment_name": "Default",
+            "runs": []
+        },
+        {
+            "experiment_id": "647150967453324427",
             "experiment_name": "exp_RandomForestClassifier",
             "runs": [
                 {
-                    "run_id": "970b42bac40c48ca9cab5e26e848301e",
-                    "run_name": "stylish-mouse-472",
-                    "metrics": {
-                        "training_score": "1725819349060 0.9940169176810398 0",
-                        "training_roc_auc": "1725819348326 0.9999077187989194 0",
-                        "training_accuracy_score": "1725819348326 0.9940169176810398 0",
-                        "training_precision_score": "1725819348326 0.9940576310391435 0",
-                        "training_log_loss": "1725819348326 0.02819930730385177 0",
-                        "training_f1_score": "1725819348326 0.9940167944178939 0",
-                        "training_recall_score": "1725819348326 0.9940169176810398 0"
-                    },
-                    "params": {
-                        "bootstrap": "True",
-                        "max_depth": "5",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "42",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "100",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
-                        "n_jobs": "None",
-                        "min_samples_split": "2"
-                    },
+                    "run_id": "87ad5e4691fd46508a7a6bb234614753",
+                    "run_name": "gaudy-stag-146",
+                    "metrics": {},
+                    "params": {},
                     "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
                         "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "stylish-mouse-472",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "gaudy-stag-146",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"970b42bac40c48ca9cab5e26e848301e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:49.086560\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"61650c2adcbd499982764194ab10c3f1\"}]",
-                        "experiment_name": "exp_RandomForestClassifier",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "random_forest_000"
-                    },
-                    "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "324de9a42261448aa640f35271248c9a",
-                    "run_name": "amazing-bee-181",
-                    "metrics": {
-                        "training_score": "1725819098316 1.0 0",
-                        "training_roc_auc": "1725819097537 1.0 0",
-                        "training_accuracy_score": "1725819097537 1.0 0",
-                        "training_precision_score": "1725819097537 1.0 0",
-                        "training_log_loss": "1725819097537 0.006768094422643887 0",
-                        "training_f1_score": "1725819097537 1.0 0",
-                        "training_recall_score": "1725819097537 1.0 0"
-                    },
-                    "params": {
-                        "bootstrap": "True",
-                        "max_depth": "17",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "None",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "138",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
-                        "n_jobs": "None",
-                        "min_samples_split": "2"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "amazing-bee-181",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"324de9a42261448aa640f35271248c9a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:11:38.348057\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"a3d3dc26d10046c7b0c3f8971b3b6101\"}]",
-                        "experiment_name": "exp_RandomForestClassifier",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "random_forest_000"
-                    },
-                    "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "74dd58e82ff14f3fbe71c4a55fcc4e0a",
-                    "run_name": "chill-rat-41",
-                    "metrics": {
-                        "training_score": "1725819369410 0.999484217041469 0\n1725819373803 0.9997936868165875 0\n1725819378608 0.9979368681658758 0\n1725819383836 0.9990715906746441 0\n1725819389331 0.999484217041469 0\n1725819394778 1.0 0\n1725819399231 0.9996905302248814 0\n1725819404687 1.0 0\n1725819410533 0.9987621208995254 0\n1725819416726 0.9977305549824633 0",
-                        "training_roc_auc": "1725819368591 0.9999993615230552 0\n1725819373154 0.9999997871743518 0\n1725819377786 0.9999856129861784 0\n1725819382999 0.9999979568737769 0\n1725819388487 0.9999993189579256 0\n1725819393938 1.0 0\n1725819398476 0.9999997871743517 0\n1725819403767 1.0 0\n1725819409562 0.9999979143086472 0\n1725819415819 0.9999843360322889 0",
-                        "training_accuracy_score": "1725819368591 0.999484217041469 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368681658758 0\n1725819382999 0.9990715906746441 0\n1725819388487 0.999484217041469 0\n1725819393938 1.0 0\n1725819398476 0.9996905302248814 0\n1725819403767 1.0 0\n1725819409562 0.9987621208995254 0\n1725819415819 0.9977305549824633 0",
-                        "training_precision_score": "1725819368591 0.9994844083870363 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979399202282015 0\n1725819382999 0.999071611917692 0\n1725819388487 0.9994847485572959 0\n1725819393938 1.0 0\n1725819398476 0.9996905514942745 0\n1725819403767 1.0 0\n1725819409562 0.9987624605777463 0\n1725819415819 0.9977347074663648 0",
-                        "training_log_loss": "1725819368591 0.009007011262496437 0\n1725819373154 0.008056528690526052 0\n1725819377786 0.015145400506125383 0\n1725819382999 0.01037534938951818 0\n1725819388487 0.008799620534047457 0\n1725819393938 0.007172637049162029 0\n1725819398476 0.008541255300932854 0\n1725819403767 0.006484139619264421 0\n1725819409562 0.010661489902576801 0\n1725819415819 0.01528433179328354 0",
-                        "training_f1_score": "1725819368591 0.9994842169920716 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368650044418 0\n1725819382999 0.9990715906647646 0\n1725819388487 0.999484216904254 0\n1725819393938 1.0 0\n1725819398476 0.9996905302215883 0\n1725819403767 1.0 0\n1725819409562 0.9987621206887635 0\n1725819415819 0.9977305502490915 0",
-                        "training_recall_score": "1725819368591 0.999484217041469 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368681658758 0\n1725819382999 0.9990715906746441 0\n1725819388487 0.999484217041469 0\n1725819393938 1.0 0\n1725819398476 0.9996905302248814 0\n1725819403767 1.0 0\n1725819409562 0.9987621208995254 0\n1725819415819 0.9977305549824633 0"
-                    },
-                    "params": {
-                        "bootstrap": "True",
-                        "max_depth": "10",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "42",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "174",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
-                        "n_jobs": "None",
-                        "min_samples_split": "7"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
-                        "phase": "hyperparameter_optimization",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "chill-rat-41",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:09.448869\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"5fcffc33745f4fc2b2c84c5c86cb7a1f\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:13.818514\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9ff92abaf2174c4abc3aec50a11f9e57\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:18.643034\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"1ba63c57eff348e696282fb4b8d074ee\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:23.874879\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e5dc270587034d56bdb1bb2748123391\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:29.376652\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"f5d83e91578045db947a68f9313e57c0\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:34.818387\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"f63ada3cde2d4ebdb239753d9ef620b7\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:39.255466\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b7e56cf7f2434335890de2313390e3a4\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:44.725848\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8e54292007ac47fd8854a15c553436a8\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:50.579092\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8d0975cb10754c7d99936aece7fbe229\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:56.761491\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e08df4e2bf944e98aba2bc3093ec77e6\"}]",
+                        "mlflow.log-model.history": "[{\"run_id\": \"87ad5e4691fd46508a7a6bb234614753\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:52:06.581775\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e2a69d817a76435ebf6e74d677027d12\"}]",
                         "mlflow.source.type": "LOCAL"
                     },
                     "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
+                        "random_forest_01.pkl",
+                        "model"
                     ]
                 },
                 {
-                    "run_id": "datasets",
-                    "run_name": "",
-                    "metrics": {},
+                    "run_id": "c316e782e68046c4baa37929b2678f23",
+                    "run_name": "youthful-ram-563",
+                    "metrics": {
+                        "accuracy": "1725825126220 0.9918074756784434 0",
+                        "recall": "1725825126225 0.9697885196374623 0",
+                        "auc_roc": "1725825126222 0.9997075707511148 0",
+                        "pr_auc": "1725825126223 0.9986198620754579 0",
+                        "precision": "1725825126226 0.981651376146789 0",
+                        "f1": "1725825126224 0.9756838905775076 0"
+                    },
                     "params": {},
-                    "tags": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "youthful-ram-563",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_RandomForestClassifier",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "random_forest_000"
+                    },
                     "artifacts": []
                 },
                 {
-                    "run_id": "c6bed43bb30d4eedadf12cb80a66f950",
-                    "run_name": "big-vole-789",
-                    "metrics": {},
-                    "params": {
-                        "n_neighbors": "6",
-                        "leaf_size": "30",
-                        "algorithm": "auto",
-                        "radius": "1.0",
-                        "n_jobs": "None",
-                        "metric": "minkowski",
-                        "metric_params": "None",
-                        "p": "2"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "NearestNeighbors",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "big-vole-789",
-                        "mlflow.autologging": "sklearn",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"c6bed43bb30d4eedadf12cb80a66f950\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:03.690347\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3eaca69bcd084ea4b32e2e6fd1bd98fb\"}]",
-                        "mlflow.source.type": "LOCAL"
-                    },
-                    "artifacts": [
-                        "model",
-                        "estimator.html"
-                    ]
-                },
-                {
-                    "run_id": "11e8577911ae4e1abfd2bcf0795ffb09",
-                    "run_name": "dazzling-worm-702",
-                    "metrics": {
-                        "training_score": "1725819424313 1.0 0",
-                        "training_roc_auc": "1725819423437 1.0 0",
-                        "training_accuracy_score": "1725819423437 1.0 0",
-                        "training_precision_score": "1725819423437 1.0 0",
-                        "training_log_loss": "1725819423437 0.006471873184984225 0",
-                        "training_f1_score": "1725819423437 1.0 0",
-                        "training_recall_score": "1725819423437 1.0 0"
-                    },
-                    "params": {
-                        "bootstrap": "True",
-                        "max_depth": "17",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "None",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "162",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
-                        "n_jobs": "None",
-                        "min_samples_split": "4"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "dazzling-worm-702",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"11e8577911ae4e1abfd2bcf0795ffb09\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:17:04.354071\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"170d5636954e458faed57c5f2e8385d3\"}]",
-                        "experiment_name": "exp_RandomForestClassifier",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "random_forest_000"
-                    },
-                    "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "cd9900c95f1548daaf9bb937e83e5747",
-                    "run_name": "worried-chimp-958",
-                    "metrics": {},
-                    "params": {
-                        "n_neighbors": "6",
-                        "leaf_size": "30",
-                        "algorithm": "auto",
-                        "radius": "1.0",
-                        "n_jobs": "None",
-                        "metric": "minkowski",
-                        "metric_params": "None",
-                        "p": "2"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "NearestNeighbors",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "worried-chimp-958",
-                        "mlflow.autologging": "sklearn",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"cd9900c95f1548daaf9bb937e83e5747\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:44.452115\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8949eb39e2ec4be794e27ccce2f52419\"}]",
-                        "mlflow.source.type": "LOCAL"
-                    },
-                    "artifacts": [
-                        "model",
-                        "estimator.html"
-                    ]
-                },
-                {
-                    "run_id": "533e4f4e4139427d99005faf585eb0ff",
-                    "run_name": "shivering-goat-240",
+                    "run_id": "d558424a6eb04f2fbcc39f279d4dbd47",
+                    "run_name": "amusing-carp-21",
                     "metrics": {},
                     "params": {},
                     "tags": {
-                        "phase": "hyperparameter_optimization",
                         "mlflow.user": "mariusayrault",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "shivering-goat-240",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "amusing-carp-21",
                         "mlflow.source.name": "app.py",
                         "mlflow.source.type": "LOCAL"
                     },
@@ -301,159 +67,105 @@
             ]
         },
         {
-            "experiment_id": "0",
-            "experiment_name": "Default",
-            "runs": []
-        },
-        {
-            "experiment_id": "613773138061666110",
-            "experiment_name": "exp_LogisticRegression",
+            "experiment_id": "330919788769364144",
+            "experiment_name": "exp_LightGBM",
             "runs": [
                 {
-                    "run_id": "099dd891a7334fb399f5f67966879ba8",
-                    "run_name": "nervous-snail-852",
-                    "metrics": {
-                        "training_score": "1725819315856 0.9885496183206107 0",
-                        "training_roc_auc": "1725819315233 0.9994705749174161 0",
-                        "training_accuracy_score": "1725819315233 0.9885496183206107 0",
-                        "training_precision_score": "1725819315233 0.9885671076912494 0",
-                        "training_log_loss": "1725819315233 0.028897047462537604 0",
-                        "training_f1_score": "1725819315233 0.9885495158465809 0",
-                        "training_recall_score": "1725819315233 0.9885496183206107 0"
-                    },
+                    "run_id": "a7fef5ee66d14e8a9d690011824bf5ca",
+                    "run_name": "bittersweet-loon-687",
+                    "metrics": {},
                     "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
                         "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
                     },
                     "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
                         "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "nervous-snail-852",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "bittersweet-loon-687",
+                        "mlflow.autologging": "sklearn",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"099dd891a7334fb399f5f67966879ba8\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:15.863748\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"24b6da22698c4b958a3990957afacbdb\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "3a1158cd68864687a8140ed7c6b20108",
-                    "run_name": "angry-sloth-175",
-                    "metrics": {
-                        "training_score": "1725818549242 0.9865118661430766 0",
-                        "training_roc_auc": "1725818548614 0.9988336155670446 0",
-                        "training_accuracy_score": "1725818548614 0.9865118661430766 0",
-                        "training_precision_score": "1725818548614 0.9864720613428352 0",
-                        "training_log_loss": "1725818548614 0.03278726590864797 0",
-                        "training_f1_score": "1725818548614 0.9864879392915524 0",
-                        "training_recall_score": "1725818548614 0.9865118661430766 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "angry-sloth-175",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"3a1158cd68864687a8140ed7c6b20108\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:29.248164\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3df96e492359482497b25c8401468de5\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "training_roc_curve.png",
-                        "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "8cfef012c1aa4f2ba7babb161b0c9be6",
-                    "run_name": "capable-cow-299",
-                    "metrics": {
-                        "training_score": "1725818565194 0.9866826020146833 0\n1725818568369 0.9865118661430766 0\n1725818571276 0.9865118661430766 0\n1725818574472 0.9865118661430766 0\n1725818577643 0.9873655455011098 0\n1725818580466 0.9865118661430766 0\n1725818583283 0.9865118661430766 0\n1725818586174 0.9865118661430766 0\n1725818589037 0.9865118661430766 0\n1725818592079 0.9865118661430766 0",
-                        "training_roc_auc": "1725818564604 0.9990174589978081 0\n1725818567808 0.9988346369194377 0\n1725818570682 0.9988344326489591 0\n1725818573878 0.9988344326489591 0\n1725818577064 0.9991406340964197 0\n1725818579906 0.9988344326489591 0\n1725818582733 0.9988344326489591 0\n1725818585630 0.9988342283784805 0\n1725818588483 0.9988346369194377 0\n1725818591300 0.9988342283784805 0",
-                        "training_accuracy_score": "1725818564604 0.9866826020146833 0\n1725818567808 0.9865118661430766 0\n1725818570682 0.9865118661430766 0\n1725818573878 0.9865118661430766 0\n1725818577064 0.9873655455011098 0\n1725818579906 0.9865118661430766 0\n1725818582733 0.9865118661430766 0\n1725818585630 0.9865118661430766 0\n1725818588483 0.9865118661430766 0\n1725818591300 0.9865118661430766 0",
-                        "training_precision_score": "1725818564604 0.9866284247620619 0\n1725818567808 0.9864720613428352 0\n1725818570682 0.9864720613428352 0\n1725818573878 0.9864720613428352 0\n1725818577064 0.9873078591012847 0\n1725818579906 0.9864720613428352 0\n1725818582733 0.9864720613428352 0\n1725818585630 0.9864720613428352 0\n1725818588483 0.9864720613428352 0\n1725818591300 0.9864720613428352 0",
-                        "training_log_loss": "1725818564604 0.03006379407767408 0\n1725818567808 0.03278714979831205 0\n1725818570682 0.032787138621041156 0\n1725818573878 0.03278713771696113 0\n1725818577064 0.027806736125683743 0\n1725818579906 0.032787138075538 0\n1725818582733 0.03278713860085446 0\n1725818585630 0.032787137489362315 0\n1725818588483 0.03278715940903956 0\n1725818591300 0.03278713860169919 0",
-                        "training_f1_score": "1725818564604 0.9866457331099132 0\n1725818567808 0.9864879392915524 0\n1725818570682 0.9864879392915524 0\n1725818573878 0.9864879392915524 0\n1725818577064 0.9873204554594752 0\n1725818579906 0.9864879392915524 0\n1725818582733 0.9864879392915524 0\n1725818585630 0.9864879392915524 0\n1725818588483 0.9864879392915524 0\n1725818591300 0.9864879392915524 0",
-                        "training_recall_score": "1725818564604 0.9866826020146833 0\n1725818567808 0.9865118661430766 0\n1725818570682 0.9865118661430766 0\n1725818573878 0.9865118661430766 0\n1725818577064 0.9873655455011098 0\n1725818579906 0.9865118661430766 0\n1725818582733 0.9865118661430766 0\n1725818585630 0.9865118661430766 0\n1725818588483 0.9865118661430766 0\n1725818591300 0.9865118661430766 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "None",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "321",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "0.007092959651178164"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "phase": "hyperparameter_optimization",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "capable-cow-299",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:45.201764\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"a9875abb9c74410a8a952e1879654b51\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:48.374614\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"0fb69230903c4e73aed583831339a6a9\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:51.281048\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e2038e3cec48414f8e5d59defc987e96\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:54.477424\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b3fec991fae14dfbb02a58ba35ff2bdf\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:57.649161\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9c73a4d84ec84855b2e5e064b2528835\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:00.471291\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"4b75c59f744e44208206ca1087761d29\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:03.289177\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3a69172a2fae43d6a1746e2533a22b9b\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:06.179397\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"d62e7b42666c4cb999ddbc4f6e36479c\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:09.041614\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"7689a85cc0544477b818d132ebaa909f\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:12.084865\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3481e714c86c4c08ac5b7e4a62e58785\"}]",
+                        "mlflow.log-model.history": "[{\"run_id\": \"a7fef5ee66d14e8a9d690011824bf5ca\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:07:32.988738\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"412dbd35538d4d85852a80f213d4a80c\"}]",
                         "mlflow.source.type": "LOCAL"
                     },
                     "artifacts": [
-                        "training_roc_curve.png",
                         "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
+                        "estimator.html"
                     ]
+                },
+                {
+                    "run_id": "3aeb05cfa5294221802dc166937eb07b",
+                    "run_name": "loud-flea-705",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "loud-flea-705",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "4aef1184c21e423cae617fcb43292d3c",
+                    "run_name": "kindly-foal-704",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "kindly-foal-704",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"4aef1184c21e423cae617fcb43292d3c\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:02:42.525265\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"292bfa36d7fd40588fedbee4ca421ba2\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "2973356315b64d2a888c29044a3a1a48",
+                    "run_name": "capricious-elk-722",
+                    "metrics": {
+                        "accuracy": "1725825954142 0.9974398361495136 0",
+                        "recall": "1725825954148 0.9909365558912386 0",
+                        "auc_roc": "1725825954144 0.999880793172429 0",
+                        "pr_auc": "1725825954145 0.9994299683582141 0",
+                        "precision": "1725825954150 0.9939393939393939 0",
+                        "f1": "1725825954147 0.9924357034795764 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "capricious-elk-722",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_LightGBM",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "lightgbm_001"
+                    },
+                    "artifacts": []
                 },
                 {
                     "run_id": "datasets",
@@ -464,52 +176,166 @@
                     "artifacts": []
                 },
                 {
-                    "run_id": "0de750e9a635481396d8768ab9a0801d",
-                    "run_name": "agreeable-newt-153",
-                    "metrics": {
-                        "training_score": "1725818595092 0.9873655455011098 0",
-                        "training_roc_auc": "1725818594491 0.9991406340964197 0",
-                        "training_accuracy_score": "1725818594491 0.9873655455011098 0",
-                        "training_precision_score": "1725818594491 0.9873078591012847 0",
-                        "training_log_loss": "1725818594491 0.027806736125683743 0",
-                        "training_f1_score": "1725818594491 0.9873204554594752 0",
-                        "training_recall_score": "1725818594491 0.9873655455011098 0"
-                    },
+                    "run_id": "a246e15edd2f45d8b8a6825ed2e86d19",
+                    "run_name": "tasteful-pug-277",
+                    "metrics": {},
                     "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "None",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "641",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
                         "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "6.789737183346761"
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
                     },
                     "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
                         "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
-                        "mlflow.runName": "agreeable-newt-153",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "tasteful-pug-277",
+                        "mlflow.autologging": "sklearn",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"0de750e9a635481396d8768ab9a0801d\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:15.099268\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b30117a0109744a7a6592ddbaf24ae57\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
+                        "mlflow.log-model.history": "[{\"run_id\": \"a246e15edd2f45d8b8a6825ed2e86d19\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:01:36.533213\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"17b272a6aab74749bb6474a7ebd7f7a2\"}]",
+                        "mlflow.source.type": "LOCAL"
                     },
                     "artifacts": [
-                        "training_roc_curve.png",
                         "model",
-                        "training_precision_recall_curve.png",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "599558f23d1d4f62a3a886ab56bc0970",
+                    "run_name": "marvelous-robin-200",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "marvelous-robin-200",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"599558f23d1d4f62a3a886ab56bc0970\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:02:00.585559\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"c6732475357f4a77b6575849741c00c0\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "lightgbm_01.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "2648b040c46a44b7aae2d8d081b0c52e",
+                    "run_name": "sassy-eel-814",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "sassy-eel-814",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"2648b040c46a44b7aae2d8d081b0c52e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:05:54.482050\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"5600eb3957bd4fdbb5f9b0c22392cc1c\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "lightgbm_02.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "0756498a6be649d392c434723fc39346",
+                    "run_name": "luminous-whale-172",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "luminous-whale-172",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"0756498a6be649d392c434723fc39346\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:10:55.821886\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"737aa1d8676e4365a842115258360788\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "7b55409b894d424780651cc9963cb1bc",
+                    "run_name": "dazzling-rat-322",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "dazzling-rat-322",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "41b2e3678c444b9d9eb74240f8d67533",
+                    "run_name": "luxuriant-croc-805",
+                    "metrics": {
+                        "accuracy": "1725825720174 0.9969278033794163 0",
+                        "recall": "1725825720181 0.9909365558912386 0",
+                        "auc_roc": "1725825720176 0.9999012818459178 0",
+                        "pr_auc": "1725825720177 0.9995259972030376 0",
+                        "precision": "1725825720182 0.9909365558912386 0",
+                        "f1": "1725825720179 0.9909365558912386 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "luxuriant-croc-805",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_LightGBM",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "lightgbm_000"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "3956f14ad9b74b0ca25de046c81a0579",
+                    "run_name": "classy-colt-739",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "classy-colt-739",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"3956f14ad9b74b0ca25de046c81a0579\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 20:09:25.805318\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"16569a91418e4c118cc94783c5dddffe\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
                     ]
                 }
             ]
@@ -518,6 +344,330 @@
             "experiment_id": ".trash",
             "experiment_name": "",
             "runs": []
+        },
+        {
+            "experiment_id": "397504656180053501",
+            "experiment_name": "exp_XgBoost",
+            "runs": [
+                {
+                    "run_id": "a55fd3178b7947f1a688990daaa61fcc",
+                    "run_name": "bemused-frog-304",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "bemused-frog-304",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"a55fd3178b7947f1a688990daaa61fcc\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:55:19.189428\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9a8e3047b67747d4a2149263323958a5\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "xgboost_model_03.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "1fe01ff7abd8451f905d112b9e41a26a",
+                    "run_name": "skillful-moth-723",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "skillful-moth-723",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"1fe01ff7abd8451f905d112b9e41a26a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:53:54.115437\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"d6248abf89de477a819955d36cfdb287\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "xgboost_model_01.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "0b894cfb32734704bab5deb69f052bd7",
+                    "run_name": "charming-squid-709",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "charming-squid-709",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"0b894cfb32734704bab5deb69f052bd7\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:54:57.357250\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"4553bbb9f9e84c9b87d0c20fba52b4ca\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "208bf3defbfb4a59b9505ca8eb5aefc7",
+                    "run_name": "awesome-perch-1000",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "awesome-perch-1000",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "datasets",
+                    "run_name": "",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {},
+                    "artifacts": []
+                },
+                {
+                    "run_id": "9d1df0576abf4d05ac89c150faf0fec6",
+                    "run_name": "hilarious-doe-33",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "hilarious-doe-33",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"9d1df0576abf4d05ac89c150faf0fec6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:53:35.030984\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"87420fda20724c9e8317513e200b630d\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "881c05be052649cdacf9fa01faad7f02",
+                    "run_name": "chill-fly-858",
+                    "metrics": {
+                        "accuracy": "1725825271848 0.996415770609319 0",
+                        "recall": "1725825271855 0.9848942598187311 0",
+                        "auc_roc": "1725825271850 0.9998956940258753 0",
+                        "pr_auc": "1725825271852 0.9995034462858006 0",
+                        "precision": "1725825271857 0.9939024390243902 0",
+                        "f1": "1725825271853 0.9893778452200304 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "chill-fly-858",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_XgBoost",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "xgboost_001"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "d5c417ba8438437c9a43bba590990e84",
+                    "run_name": "skittish-quail-993",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "skittish-quail-993",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"d5c417ba8438437c9a43bba590990e84\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:59:45.481571\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b0c3f6e2b7e449ab936443ce873e07c1\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "xgboost_model_04.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "940ed0deddc74bcc88a201746f7e9a65",
+                    "run_name": "adaptable-dove-949",
+                    "metrics": {
+                        "accuracy": "1725825233728 0.9959037378392217 0",
+                        "recall": "1725825233735 0.9879154078549849 0",
+                        "auc_roc": "1725825233729 0.9998677549256633 0",
+                        "pr_auc": "1725825233731 0.9993622731717156 0",
+                        "precision": "1725825233736 0.9879154078549849 0",
+                        "f1": "1725825233733 0.9879154078549849 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "adaptable-dove-949",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_XgBoost",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "xgboost_000"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "329e647beac642c7b1418f2d0345e57f",
+                    "run_name": "charming-robin-140",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "charming-robin-140",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "a3eae7a722f9472883ce69d2cc627ebe",
+                    "run_name": "whimsical-smelt-838",
+                    "metrics": {
+                        "accuracy": "1725825584967 0.9953917050691244 0",
+                        "recall": "1725825584975 0.9848942598187311 0",
+                        "auc_roc": "1725825584969 0.999899419239237 0",
+                        "pr_auc": "1725825584971 0.9995166582939194 0",
+                        "precision": "1725825584977 0.9878787878787879 0",
+                        "f1": "1725825584973 0.9863842662632375 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "whimsical-smelt-838",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_XgBoost",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "xgboost_003"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "bf4d8f5517a843d09241637edcf2233a",
+                    "run_name": "clumsy-rat-519",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "clumsy-rat-519",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"bf4d8f5517a843d09241637edcf2233a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:54:32.219470\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"4aa0aa7d05334fc99d62f9a486680124\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "xgboost_model_02.pkl",
+                        "model"
+                    ]
+                },
+                {
+                    "run_id": "e113d02648f24c8cacc7c2f2a50c8891",
+                    "run_name": "silent-gnu-234",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "silent-gnu-234",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"e113d02648f24c8cacc7c2f2a50c8891\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 19:54:12.619398\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"790c6c955a234bdfacf656c412cfc589\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "cd4ab79f9f0e447495c18e9134685891",
+                    "run_name": "wise-vole-665",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "wise-vole-665",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "688605479d6b4fdc90fc3aeab5489df6",
+                    "run_name": "bold-shad-996",
+                    "metrics": {
+                        "accuracy": "1725825318819 0.9953917050691244 0",
+                        "recall": "1725825318826 0.9848942598187311 0",
+                        "auc_roc": "1725825318821 0.9998696175323443 0",
+                        "pr_auc": "1725825318822 0.9993723861420019 0",
+                        "precision": "1725825318827 0.9878787878787879 0",
+                        "f1": "1725825318824 0.9863842662632375 0"
+                    },
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "bold-shad-996",
+                        "mlflow.source.name": "app.py",
+                        "experiment_name": "exp_XgBoost",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "xgboost_002"
+                    },
+                    "artifacts": []
+                },
+                {
+                    "run_id": "97031ef126bc45bd8ea961b07ca90c5b",
+                    "run_name": "fun-zebra-47",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "b442bb9c16506c444b336cba7c050c949e0b9516",
+                        "mlflow.runName": "fun-zebra-47",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": []
+                }
+            ]
         }
     ]
 }

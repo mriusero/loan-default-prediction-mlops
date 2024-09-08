@@ -1,5 +1,6 @@
-import streamlit as st
 import json
+
+import streamlit as st
 
 from ..components import get_mlruns_data, check_mlruns_directory, save_data_to_json
 

@@ -1,8 +1,9 @@
-import pandas as pd
 import numpy as np
-from scipy import stats
+import pandas as pd
 import streamlit as st
+from scipy import stats
 from sklearn.model_selection import train_test_split
+
 
 class Preprocessor:
     def __init__(self):
@@ -62,17 +63,24 @@ class Preprocessor:
         """
         enriched_dfs = {}
         for key, df in dataframes.items():
+            # Calcul des nouvelles fonctionnalités
             df['debt_to_income_ratio'] = df['total_debt_outstanding'] / df['income']
             df['credit_to_income_ratio'] = df['loan_amt_outstanding'] / df['income']
-            #df['credit_lines_per_year'] = df['credit_lines_outstanding'] / df['years_employed']
+            # df['credit_lines_per_year'] = df['credit_lines_outstanding'] / df['years_employed']
             df['fico_score_diff'] = df['fico_score'] - 700
-            #df['debt_per_credit_line'] = df['total_debt_outstanding'] / df['credit_lines_outstanding']
-            #df['employment_per_credit_line'] = df['years_employed'] / df['credit_lines_outstanding']
+            # df['debt_per_credit_line'] = df['total_debt_outstanding'] / df['credit_lines_outstanding']
+            # df['employment_per_credit_line'] = df['years_employed'] / df['credit_lines_outstanding']
             df['normalized_fico_score'] = (df['fico_score'] - df['fico_score'].min()) / (
-                        df['fico_score'].max() - df['fico_score'].min())
+                    df['fico_score'].max() - df['fico_score'].min())
 
-            enriched_dfs[key] = df.replace([np.inf, -np.inf], np.nan).dropna()
-            enriched_dfs[key] = df.dropna()
+            # Conversion des colonnes entières en flottants
+            int_columns = df.select_dtypes(include=['int64']).columns
+            df[int_columns] = df[int_columns].astype(float)
+
+            # Remplacer les infinies par NaN, puis supprimer les lignes avec des NaN
+            df = df.replace([np.inf, -np.inf], np.nan).dropna()
+
+            enriched_dfs[key] = df
 
         return enriched_dfs
 

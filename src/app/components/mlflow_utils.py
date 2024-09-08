@@ -1,8 +1,10 @@
-import os
-import yaml
 import json
+import os
 import subprocess
 import webbrowser
+
+import yaml
+
 
 def load_yaml(file_path):
     """Load a YAML file and return its contents as a dictionary."""

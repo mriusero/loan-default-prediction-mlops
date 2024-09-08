@@ -1,14 +1,13 @@
-import streamlit as st
-import json
 import joblib as jb
 import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
 import numpy as np
+import pandas as pd
+import seaborn as sns
+import streamlit as st
 from sklearn.metrics import confusion_matrix, classification_report, roc_curve, auc, precision_recall_curve
-from sklearn.preprocessing import label_binarize
 from sklearn.model_selection import learning_curve
-from ..components import get_mlruns_data, check_mlruns_directory, save_data_to_json
+from sklearn.preprocessing import label_binarize
+
 
 def page_4():
     st.markdown('<div class="header">#4 Prediction_</div>', unsafe_allow_html=True)
@@ -21,18 +20,14 @@ def page_4():
         X_train, y_train, X_val, y_val, X_test, y_test = get_data_splits()
 
         model_paths = {
-            'Random Forest': 'models/random_forest_02.pkl',
-            'XGBoost': 'models/xgboost_model_02.pkl',
-            'LightGBM': 'models/lightgbm_02.pkl'
+            'Random Forest': 'models/random_forest_01.pkl',
+            'XGBoost': 'models/xgboost_model_04.pkl',
+            'LightGBM': 'models/lightgbm_03.pkl'
         }
 
         col1, col2, col3 = st.columns(3)
 
         for i, (model_name, path) in enumerate(model_paths.items()):
-            model = jb.load(path)
-            predictions = model.predict(X_test)
-            y_pred_prob = model.predict_proba(X_test)[:, 1]  # Probabilités pour la classe positive
-
             if i == 0:
                 col = col1
             elif i == 1:
@@ -43,13 +38,24 @@ def page_4():
             with col:
                 st.write(f'## {model_name}_:')
 
-                # Calcul des métriques
+                # Spinner pour indiquer que le modèle est en cours de traitement
+                with st.spinner(f"Loading and processing {model_name} model..."):
+                    model = jb.load(path)
+                    predictions = model.predict(X_test)
+                    y_pred_prob = model.predict_proba(X_test)[:, 1]  # Probabilités pour la classe positive
+
+                # Barres de chargement pour les différentes parties du traitement
+                progress_bar = st.progress(0)
+
+                # Classification Report
+                progress_bar.progress(20)
                 report_dict = classification_report(y_test, predictions, output_dict=True)
                 report_df = pd.DataFrame(report_dict).transpose()
                 st.write(f'Classification Report pour {model_name}:')
                 st.dataframe(report_df)
 
                 # Matrice de confusion
+                progress_bar.progress(40)
                 conf_matrix = confusion_matrix(y_test, predictions)
                 fig, ax = plt.subplots()
                 sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', ax=ax)
@@ -59,6 +65,7 @@ def page_4():
                 st.pyplot(fig)
 
                 # Courbe ROC
+                progress_bar.progress(60)
                 if len(set(y_test)) == 2:  # pour les cas de classification binaire
                     y_test_bin = label_binarize(y_test, classes=[0, 1])
                     fpr, tpr, _ = roc_curve(y_test_bin, y_pred_prob)
@@ -75,6 +82,7 @@ def page_4():
                     st.pyplot(fig)
 
                 # Courbe d'apprentissage
+                progress_bar.progress(80)
                 train_sizes, train_scores, test_scores = learning_curve(model, X_train, y_train, cv=5, scoring='accuracy')
                 train_mean = np.mean(train_scores, axis=1)
                 test_mean = np.mean(test_scores, axis=1)
@@ -88,6 +96,7 @@ def page_4():
                 st.pyplot(fig)
 
                 # Courbe de précision-rappel
+                progress_bar.progress(100)
                 if len(set(y_test)) == 2:  # pour les cas de classification binaire
                     precision, recall, _ = precision_recall_curve(y_test, y_pred_prob)
                     fig, ax = plt.subplots()
@@ -97,5 +106,6 @@ def page_4():
                     ax.set_title(f'Courbe de Précision-Rappel pour {model_name}')
                     ax.legend(loc='best')
                     st.pyplot(fig)
+
     else:
         st.text("Click to generate reports & plots.")

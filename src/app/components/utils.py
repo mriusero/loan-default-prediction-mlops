@@ -1,8 +1,10 @@
 import streamlit as st
-from ...models import run_logr_pipeline, run_rf_pipeline, run_xgboost_pipeline, run_lgb_pipeline
 from imblearn.over_sampling import SMOTE
-from imblearn.under_sampling import RandomUnderSampler
 from imblearn.pipeline import Pipeline
+from imblearn.under_sampling import RandomUnderSampler
+
+from ...models import run_logr_pipeline, run_rf_pipeline, run_xgboost_pipeline, run_lgb_pipeline
+
 
 def get_data_splits():
     """
@@ -69,7 +71,7 @@ def handle_models():
         model_name = st.selectbox("Choose a model", ["LogisticRegression", "RandomForestClassifier", "XgBoost", "LightGBM"])
 
     with col2:
-        n_trials = st.number_input("Trials number for optimization if True", min_value=1, max_value=100, value=10)
+        n_trials = st.number_input("Trials number for optimization if True", min_value=1, max_value=1000, value=10)
 
     with col3:
         optimize = st.checkbox("Optimize hyperparameters", value=False)
@@ -80,6 +82,9 @@ def handle_models():
         X_selected = st.multiselect("Select X_", loan_data_columns, loan_data_columns[:])
         Y_selected = st.multiselect("Select Y_", 'default', 'default')
         run_button = st.button("Run prediction")
+        from src.app.components import start_mlflow_ui
+        if st.button('Mlflow UI'):
+            start_mlflow_ui()
     with col2:
         st.markdown("##### X_")
         st.write(X_selected)

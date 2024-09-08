@@ -196,7 +196,7 @@ class DataVisualizer:
         ))
 
         fig.update_layout(
-            title='Matrice de Corrélation',
+            title='',
             xaxis_title='Variables',
             yaxis_title='Variables',
             xaxis=dict(ticks='', side='bottom', title_standoff=0),
@@ -225,7 +225,7 @@ class DataVisualizer:
 
         col1, col2 = st.columns([1,3])
         with col1:
-            st.write(f"### Corrélations avec '{target_variable}'")
+            st.write(f"### Correlations with '{target_variable}'")
             st.dataframe(correlations)
         with col2:
             fig = go.Figure(data=go.Bar(
@@ -235,7 +235,7 @@ class DataVisualizer:
             ))
 
             fig.update_layout(
-                title=f'Coefficients de corrélation avec {target_variable}',
+                title=f'Correlation with {target_variable}',
                 xaxis_title='Variables',
                 yaxis_title='Coefficient de Corrélation',
                 plot_bgcolor='#313234',

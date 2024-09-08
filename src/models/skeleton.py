@@ -1,17 +1,29 @@
 import os
 import pickle
 import tempfile
+import warnings
+
+import lightgbm as lgb
 import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
 import optuna
-import streamlit as st
 import pandas as pd
-import warnings
+import streamlit as st
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay, roc_auc_score, average_precision_score, f1_score, recall_score, precision_score
-import lightgbm as lgb
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    ConfusionMatrixDisplay,
+    roc_auc_score,
+    average_precision_score,
+    f1_score,
+    recall_score,
+    precision_score
+)
+from xgboost import XGBClassifier
+
 
 def configure_mlflow(experiment_name="Default"):
     """Configure MLflow to use a specific experiment."""
@@ -22,7 +34,7 @@ class ModelPipeline:
         """
         Initialize the model pipeline.
 
-        :param model_type: Type of the model ('random_forest', 'logistic_regression', 'lightgbm').
+        :param model_type: Type of the model ('random_forest', 'logistic_regression', 'xgboost', 'lightgbm').
         :param params: Dictionary of hyperparameters for the model.
         :param exp_name: Name of the MLflow experiment.
         :param save_path: Path to save the trained model locally.
@@ -39,6 +51,8 @@ class ModelPipeline:
         params = params or self.params
         if self.model_type == 'random_forest':
             self.model = RandomForestClassifier(**params)
+        elif self.model_type == 'xgboost':
+            self.model = XGBClassifier(**params)
         elif self.model_type == 'logistic_regression':
             self.model = LogisticRegression(**params)
         elif self.model_type == 'lightgbm':
@@ -46,9 +60,8 @@ class ModelPipeline:
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported.")
 
-        # Check if model has required methods
         if not (hasattr(self.model, 'predict') and callable(getattr(self.model, 'predict'))):
-            raise ValueError("Model does not have 'predict' method.")
+            raise ValueError("Model does not have a 'predict' method.")
 
     def train(self, X_train, y_train):
         """Train the model using the training data."""
@@ -76,7 +89,7 @@ class ModelPipeline:
     def log_params(self):
         """Log model parameters to MLflow."""
         mlflow.log_params(self.params)
-        print(f"- parameters logged to MLflow: {self.params}")
+        print(f"- Parameters logged to MLflow: {self.params}")
 
     def log_metrics(self, metrics):
         """Log model metrics to MLflow."""
@@ -91,7 +104,7 @@ class ModelPipeline:
             with open(log_path, 'w') as f:
                 f.write("Training completed successfully.")
             mlflow.log_artifact(log_path)
-            print("--- training log saved and logged to MLflow.")
+            print("--- Training log saved and logged to MLflow.")
 
             plt.figure()
             plt.title("Confusion Matrix")
@@ -99,7 +112,7 @@ class ModelPipeline:
             plt.savefig(plot_path)
             mlflow.log_artifact(plot_path)
             mlflow.autolog()
-            print("---- plot saved and logged to MLflow.")
+            print("---- Plot saved and logged to MLflow.")
 
     def log_model(self, X_sample):
         """Log the trained model to MLflow and/or save locally with versioning."""
@@ -107,21 +120,19 @@ class ModelPipeline:
             raise ValueError("Model is not initialized. Call 'initialize_model()' first.")
         if self.save_path:
             new_file_path = self._get_versioned_file_path()
-            with open(new_file_path, 'wb') as f:  # Save locally
+            with open(new_file_path, 'wb') as f:
                 pickle.dump(self.model, f)
-            print(f"----- model saved locally at: {new_file_path}")
+            print(f"----- Model saved locally at: {new_file_path}")
 
-            # Define model signature
             signature = mlflow.models.infer_signature(X_sample, self.model.predict(X_sample))
 
-            # Log model with signature
             mlflow.sklearn.log_model(
                 sk_model=self.model,
                 artifact_path="model",
                 signature=signature
             )
             mlflow.log_artifact(new_file_path)
-            print(f"------ local model file '{new_file_path}' logged to MLflow as an artifact.")
+            print(f"------ Local model file '{new_file_path}' logged to MLflow as an artifact.")
 
     def _get_versioned_file_path(self):
         """Generate a new file path for the model with an incremented version number."""
@@ -129,7 +140,7 @@ class ModelPipeline:
         base_name_no_ext, ext = os.path.splitext(base_name)
         existing_files = [f for f in os.listdir(directory) if f.startswith(base_name_no_ext) and f.endswith(ext)]
         version_numbers = [int(f[len(base_name_no_ext) + 1:-len(ext)]) for f in existing_files if f[len(base_name_no_ext) + 1:-len(ext)].isdigit()]
-        next_version = max(version_numbers, default=0) + 1  # Start versioning at 01
+        next_version = max(version_numbers, default=0) + 1
         return os.path.join(directory, f"{base_name_no_ext}_{next_version:02d}{ext}")
 
     def objective(self, trial, X_train, y_train, X_val, y_val):
@@ -143,7 +154,6 @@ class ModelPipeline:
         :param y_val: Target vector for validation.
         :return: Loss value to minimize.
         """
-        # Define hyperparameter search space based on model type
         if self.model_type == 'random_forest':
             params = {
                 'n_estimators': trial.suggest_int('n_estimators', 50, 200),
@@ -152,10 +162,19 @@ class ModelPipeline:
                 'random_state': 42
             }
         elif self.model_type == 'logistic_regression':
-            # Utiliser suggest_float avec log=True pour remplacer suggest_loguniform
             params = {
                 'C': trial.suggest_float('C', 1e-3, 1e2, log=True),
                 'max_iter': trial.suggest_int('max_iter', 100, 1000)
+            }
+        elif self.model_type == 'xgboost':
+            params = {
+                'n_estimators': trial.suggest_int('n_estimators', 50, 200),
+                'max_depth': trial.suggest_int('max_depth', 3, 15),
+                'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.3),
+                'gamma': trial.suggest_float('gamma', 0, 1),
+                'subsample': trial.suggest_float('subsample', 0.5, 1.0),
+                'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1.0),
+                'random_state': 42
             }
         elif self.model_type == 'lightgbm':
             params = {
@@ -167,26 +186,20 @@ class ModelPipeline:
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported for optimization.")
 
-        # Initialize and train model
         self.initialize_model(params)
         self.train(X_train, y_train)
 
-        # Predict probabilities and labels on validation set
         y_val_pred_proba = self.model.predict_proba(X_val)[:, 1]
         y_val_pred = self.model.predict(X_val)
 
-        # Calculate the metrics in order of priority
         auc_roc = roc_auc_score(y_val, y_val_pred_proba)
         pr_auc = average_precision_score(y_val, y_val_pred_proba)
         f1 = f1_score(y_val, y_val_pred)
         recall = recall_score(y_val, y_val_pred)
         precision = precision_score(y_val, y_val_pred)
 
-        # Define a composite score based on priority
-        # Higher weights for higher priority metrics
         composite_score = (0.4 * auc_roc) + (0.3 * pr_auc) + (0.2 * f1) + (0.05 * recall) + (0.05 * precision)
 
-        # Return the negative composite score to maximize it
         return -composite_score
 
     def optimize_hyperparameters(self, X_train, y_train, X_val, y_val, n_trials=10):
@@ -195,7 +208,6 @@ class ModelPipeline:
             warnings.simplefilter("ignore", category=FutureWarning)
             warnings.simplefilter("ignore", category=UserWarning)
 
-            # Désactiver l'autologging pendant l'optimisation
             mlflow.autolog(disable=True)
 
             with mlflow.start_run(nested=True):
@@ -206,8 +218,8 @@ class ModelPipeline:
 
     def run_pipeline(self, optimize=False, n_trials=10):
         """Run the complete ML pipeline."""
-        print(f"\n-------- Machine Learning Experience pipeline ---------")
-        print(f"Experience: '{self.experiment_name}'")
+        print(f"\n-------- Machine Learning Experience Pipeline ---------")
+        print(f"Experiment: '{self.experiment_name}'")
 
         from src.app import get_data_splits
         X_train, y_train, X_val, y_val, X_test, y_test = get_data_splits()
@@ -215,31 +227,24 @@ class ModelPipeline:
         if optimize:
             self.optimize_hyperparameters(X_train, y_train, X_val, y_val, n_trials)
 
-        # Initialize and train model
         self.initialize_model()  # Use best params if optimized
         self.train(X_train, y_train)
 
-        # Use mlflow.autolog after training
         mlflow.autolog(log_input_examples=True, log_model_signatures=True)
 
         with mlflow.start_run() as run:
             metrics = self.validate(X_val, y_val)
             self.log_metrics(metrics)
 
-            # Log additional custom tags
             mlflow.set_tag("model_version", f'{self.model_type}_{self.get_next_version()}')
             mlflow.set_tag("experiment_name", self.experiment_name)
-            print(f"------- tags added to MLflow run: 'model_version', '{self.model_type}_{self.get_next_version()}'")
+            print(f"------- Tags added to MLflow run: 'model_version', '{self.model_type}_{self.get_next_version()}'")
             print("Experience completed successfully!")
 
-            # Display results on Streamlit
             self.display_results_on_streamlit(metrics, X_val, y_val)
-
-            # Log model to MLflow
             self.log_model(X_val)  # Pass a sample for signature inference
 
         predictions = self.predict(X_test)
-        st.write(f"Predictions {self.experiment_name}:", predictions)
 
     def get_next_version(self):
         """Get the next version number for the model."""

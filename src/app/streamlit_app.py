@@ -3,7 +3,6 @@ import os
 
 import streamlit as st
 
-from .components import start_mlflow_ui
 from ..data import Preprocessor
 from ..visualization import DataVisualizer
 
@@ -35,21 +34,20 @@ def main_layout():
                                          "#5 Mlflow Artifacts_",
                                          ])
     # -- LAYOUT --
-    col1, col2 = st.columns([6, 4])
+    col1, col2 = st.columns([8, 4])
     with col1:
         global update_message
         st.markdown('<div class="title">MLOps</div>', unsafe_allow_html=True)
-        st.markdown("#### *Predicting Loan Default Risk Using MLOps in Retail Banking* ")
-        colA, colB, colC = st.columns([1, 8, 1])
+
+        colA, colB, colC = st.columns([2, 11, 1])
         with colA:
             # st.text("")
             github_button('https://github.com/mriusero/projet-sda-mlops')
         with colB:
-            # st.text("")
             st.text("")
+            st.markdown("#### *'Predicting Loan Default Risk Using MLOps in Retail Banking'* ")
 
-            if st.button('Mlflow UI'):
-                start_mlflow_ui()
+
 
         #with colC:
         #    # st.text("")

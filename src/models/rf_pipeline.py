@@ -1,8 +1,5 @@
 # rf_pipeline.py
 
-import streamlit as st
-from sklearn.datasets import load_iris
-
 from .skeleton import ModelPipeline
 
 
