@@ -7,7 +7,12 @@ from ..components import handle_models, get_mlruns_data, check_mlruns_directory,
 
 def page_3():
     st.markdown('<div class="header">#3 Experiments_</div>', unsafe_allow_html=True)
+    st.text("")
+    st.text("Here is the development phase with experiments, runs and track models from Mlflow.")
+    st.markdown('---')
 
+
+    st.markdown("# #Start a run_")
     handle_models()
 
 

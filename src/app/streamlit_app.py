@@ -24,7 +24,7 @@ def main_layout():
     )
     load_css()
     st.sidebar.markdown("# --- MLOps ---\n\n"
-                        " ## *'Loan Default Risk Analysis'*\n")
+                        " ## *'Predicting Loan Default Risk Using MLOps in Retail Banking'*\n")
     page = st.sidebar.radio("Project_", ["#0 Introduction_",
                                          "#1 Exploratory Data Analysis_",
                                          "#2 Feature Engineering_",
@@ -36,7 +36,7 @@ def main_layout():
     with col1:
         global update_message
         st.markdown('<div class="title">MLOps</div>', unsafe_allow_html=True)
-        st.markdown("#### *Loan Default Risk Analysis* ")
+        st.markdown("#### *Predicting Loan Default Risk Using MLOps in Retail Banking* ")
         colA, colB, colC, colD = st.columns([2, 4, 4, 2])
         with colA:
             # st.text("")
