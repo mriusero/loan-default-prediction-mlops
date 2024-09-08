@@ -2,6 +2,7 @@ import streamlit as st
 
 from ...data import CSVLoader
 
+
 def page_2():
     st.markdown('<div class="header">#2 Feature Engineering_</div>', unsafe_allow_html=True)
 

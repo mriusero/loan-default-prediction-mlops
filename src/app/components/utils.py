@@ -1,11 +1,14 @@
-import streamlit as st
-import os
 import json
-import yaml
-from ...models import run_logr_pipeline, run_rf_pipeline
-from ...models import ModelPipeline
+import os
 import subprocess
 import webbrowser
+
+import streamlit as st
+import yaml
+
+from ...models import run_logr_pipeline, run_rf_pipeline
+
+
 def handle_models():
 
     col1, col2, col3 = st.columns([1,1,1])

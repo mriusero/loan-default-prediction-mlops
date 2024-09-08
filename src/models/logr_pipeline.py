@@ -5,6 +5,7 @@ from sklearn.datasets import load_iris
 
 from .skeleton import ModelPipeline
 
+
 def run_logr_pipeline(optimize, n_trials, exp_name):
     """
     Run a pipeline for LogisticRegression using ModelPipeline.

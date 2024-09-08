@@ -1,16 +1,17 @@
-import streamlit as st
-import pickle
-import subprocess
 import os
+import pickle
+import tempfile
+
+import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
 import optuna
+import streamlit as st
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-import tempfile
+
 
 def configure_mlflow(experiment_name="Default"):
     """

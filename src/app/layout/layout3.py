@@ -1,7 +1,10 @@
-import streamlit as st
 import json
 
+import streamlit as st
+
 from ..components import handle_models, get_mlruns_data, check_mlruns_directory, save_data_to_json
+
+
 def page_3():
     st.markdown('<div class="header">#3 Experiments_</div>', unsafe_allow_html=True)
 
