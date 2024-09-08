@@ -2,6 +2,7 @@ import gc
 import os
 
 import streamlit as st
+from .components import start_mlflow_ui
 
 update_message = 'Data loaded'
 display = ""
@@ -21,29 +22,31 @@ def main_layout():
         initial_sidebar_state="auto",
     )
     load_css()
-    st.sidebar.markdown("# --- Project title ---\n\n"
-                        " ## *'Field'*\n")
+    st.sidebar.markdown("# --- MLOps ---\n\n"
+                        " ## *'Loan Default Risk Analysis'*\n")
     page = st.sidebar.radio("Project_", ["#0 Introduction_",
                                          "#1 Exploratory Data Analysis_",
-                                         "#2 Empty page_",
-                                         "#3 Empty page_",
-                                         "#4 Empty page_",
+                                         "#2 Feature Engineering_",
+                                         "#3 Experiments_",
+                                         "#4 Prediction_",
                                          ])
     # -- LAYOUT --
     col1, col2 = st.columns([6, 4])
     with col1:
         global update_message
-        st.markdown('<div class="title">Project title</div>', unsafe_allow_html=True)
-        st.markdown("#### *'Project name & field'* ")
-        colA, colB, colC, colD = st.columns([1, 4, 4, 3])
+        st.markdown('<div class="title">MLOps</div>', unsafe_allow_html=True)
+        st.markdown("#### *Loan Default Risk Analysis* ")
+        colA, colB, colC, colD = st.columns([2, 4, 4, 2])
         with colA:
             # st.text("")
             github_button('https://github.com/mriusero/projet-sda-mlops')
         with colB:
             # st.text("")
             st.text("")
-            st.link_button('Link 1',
-                           'https://www.something.com')
+
+            if st.button('Mlflow UI'):
+                start_mlflow_ui()
+
         with colC:
             # st.text("")
             st.text("")
@@ -65,15 +68,15 @@ def main_layout():
 
     st.markdown('---')
 
-    if page == "#0 Empty page_":
+    if page == "#0 Introduction_":
         page_0()
     elif page == "#1 Exploratory Data Analysis_":
         page_1()
-    elif page == "#2 Empty page_":
+    elif page == "#2 Feature Engineering_":
         page_2()
-    elif page == "#3 Empty page_":
+    elif page == "#3 Experiments_":
         page_3()
-    elif page == "#4 Empty page_":
+    elif page == "#4 Prediction_":
         page_4()
 
     st.sidebar.markdown("&nbsp;")

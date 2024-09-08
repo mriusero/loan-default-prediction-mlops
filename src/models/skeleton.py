@@ -113,6 +113,7 @@ class ModelPipeline:
             plot_path = os.path.join(tmpdirname, "confusion_matrix.png")
             plt.savefig(plot_path)
             mlflow.log_artifact(plot_path)
+            mlflow.autolog()
             print(f"---- plot saved and logged to MLflow.")
 
     def log_model(self, X_sample):
@@ -279,20 +280,4 @@ class ModelPipeline:
         """
         return mlflow.sklearn.load_model(model_uri)
 
-    @staticmethod
-    def start_mlflow_ui(host="localhost", port=5001):
-        """
-        Start the MLflow server in a new process.
 
-        :param host: Host to run the MLflow server on.
-        :param port: Port to run the MLflow server on.
-        """
-        command = [
-            "mlflow", "server",
-            "--default-artifact-root", "artifacts/",
-            "--host", host,
-            "--port", str(port)
-        ]
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-        print(f"MLflow UI started on http://{host}:{port}\n")
