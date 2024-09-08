@@ -2,7 +2,9 @@ import gc
 import os
 
 import streamlit as st
-from .components import start_mlflow_ui
+
+from ..data import Preprocessor
+from ..visualization import DataVisualizer
 
 update_message = 'Data loaded'
 display = ""
@@ -14,7 +16,7 @@ def load_css():
 
 def main_layout():
     from .components import github_button
-    from .layout import page_0, page_1, page_2, page_3, page_4
+    from .layout import page_0, page_1, page_2, page_3, page_4, page_5
 
     st.set_page_config(
         page_title="SDA-MLOps",
@@ -23,48 +25,51 @@ def main_layout():
     )
     load_css()
     st.sidebar.markdown("# --- MLOps ---\n\n"
-                        " ## *'Loan Default Risk Analysis'*\n")
+                        " ## *'Predicting Loan Default Risk Using MLOps in Retail Banking'*\n")
     page = st.sidebar.radio("Project_", ["#0 Introduction_",
                                          "#1 Exploratory Data Analysis_",
                                          "#2 Feature Engineering_",
                                          "#3 Experiments_",
                                          "#4 Prediction_",
+                                         "#5 Mlflow Artifacts_",
                                          ])
     # -- LAYOUT --
-    col1, col2 = st.columns([6, 4])
+    col1, col2 = st.columns([8, 4])
     with col1:
         global update_message
         st.markdown('<div class="title">MLOps</div>', unsafe_allow_html=True)
-        st.markdown("#### *Loan Default Risk Analysis* ")
-        colA, colB, colC, colD = st.columns([2, 4, 4, 2])
+
+        colA, colB, colC = st.columns([2, 11, 1])
         with colA:
             # st.text("")
             github_button('https://github.com/mriusero/projet-sda-mlops')
         with colB:
-            # st.text("")
             st.text("")
+            st.markdown("#### *'Predicting Loan Default Risk Using MLOps in Retail Banking'* ")
 
-            if st.button('Mlflow UI'):
-                start_mlflow_ui()
 
-        with colC:
-            # st.text("")
-            st.text("")
-            st.link_button('Link 2',
-                           'https://www.something.com')
-        with colD:
-            # st.text("")
-            st.text("")
-            #if st.button('Update data'):
-            #    update_message = load_data(folder_path='')
-            #    st.sidebar.success(f"{update_message}")
-            #    print(update_message)
+
+        #with colC:
+        #    # st.text("")
+        #    st.text("")
+        #    st.link_button('Link 2',
+        #                   'https://www.something.com')
+
+
     with col2:
         st.text("")
         st.text("")
         st.text("")
-        #ata = DataVisualizer()
-        #t.session_state.data = data
+        st.text("")
+        st.markdown("##### Data Loading")
+        data = DataVisualizer()
+        st.session_state.data = data
+
+        st.markdown("##### Preprocessing")
+        preprocessor = Preprocessor()
+        st.session_state.processed_data = preprocessor.preprocess_data()
+
+
 
     st.markdown('---')
 
@@ -78,6 +83,8 @@ def main_layout():
         page_3()
     elif page == "#4 Prediction_":
         page_4()
+    elif page == "#5 Mlflow Artifacts_":
+        page_5()
 
     st.sidebar.markdown("&nbsp;")
 

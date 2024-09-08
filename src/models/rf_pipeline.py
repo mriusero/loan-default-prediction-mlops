@@ -1,8 +1,5 @@
 # rf_pipeline.py
 
-import streamlit as st
-from sklearn.datasets import load_iris
-
 from .skeleton import ModelPipeline
 
 
@@ -15,8 +12,8 @@ def run_rf_pipeline(optimize, n_trials, exp_name):
     :param exp_name: Name of the MLflow experiment to use.
     """
     # Load example data (Iris dataset)
-    data = load_iris()
-    X, y = data.data, data.target
+    #data = load_iris()
+    #X, y = data.data, data.target
 
     # Define default hyperparameters for the RandomForestClassifier model
     rf_params = {
@@ -34,12 +31,7 @@ def run_rf_pipeline(optimize, n_trials, exp_name):
     )
 
     # Run the pipeline with or without hyperparameter optimization
-    pipeline.run_pipeline(X, y, optimize=optimize, n_trials=n_trials)
+    pipeline.run_pipeline(optimize=optimize, n_trials=n_trials)
 
-    # Make predictions with the trained model
-    X_new = [[5.1, 3.5, 1.4, 0.2]]  # Example of new data point for prediction
-    predictions = pipeline.predict(X_new)
-    st.write("Predictions with RandomForestClassifier:", predictions)
 
-    # Start the MLflow UI to visualize experiments
-    pipeline.start_mlflow_ui()
+

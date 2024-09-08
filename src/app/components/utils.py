@@ -1,141 +1,114 @@
 import streamlit as st
-import os
-import json
-import yaml
-from ...models import run_logr_pipeline, run_rf_pipeline
-from ...models import ModelPipeline
-import subprocess
-import webbrowser
-def handle_models():
+from imblearn.over_sampling import SMOTE
+from imblearn.pipeline import Pipeline
+from imblearn.under_sampling import RandomUnderSampler
 
-    col1, col2, col3 = st.columns([1,1,1])
+from ...models import run_logr_pipeline, run_rf_pipeline, run_xgboost_pipeline, run_lgb_pipeline
+
+
+def get_data_splits():
+    """
+    Extrait les ensembles de données X_train, y_train, X_val, y_val, X_test, y_test
+    à partir des données prétraitées, et équilibre les classes.
+
+    Returns:
+    - X_train (DataFrame): Données d'entraînement, sans la colonne cible.
+    - y_train (Series): Valeurs cibles pour l'entraînement.
+    - X_val (DataFrame): Données de validation, sans la colonne cible.
+    - y_val (Series): Valeurs cibles pour la validation.
+    - X_test (DataFrame): Données de test, sans la colonne cible.
+    - y_test (Series): Valeurs cibles pour le test.
+    """
+    preprocessed_data = st.session_state.processed_data
+
+    # Extraction des DataFrames prétraités
+    df_train = preprocessed_data['Loan_Data_train']
+    df_val = preprocessed_data['Loan_Data_val']
+    df_test = preprocessed_data['Loan_Data_test']
+
+    # Supposons que la colonne cible soit nommée 'default'
+    target_column = 'default'
+
+    # Séparation des caractéristiques et des cibles pour chaque ensemble de données
+    X_train = df_train.drop(columns=[target_column])
+    y_train = df_train[target_column]
+
+    X_val = df_val.drop(columns=[target_column])
+    y_val = df_val[target_column]
+
+    X_test = df_test.drop(columns=[target_column])
+    y_test = df_test[target_column]
+
+    # Création du pipeline pour le suréchantillonnage et le sous-échantillonnage
+    over_sampler = SMOTE()
+    under_sampler = RandomUnderSampler()
+
+    # Pipeline d'équilibrage
+    pipeline = Pipeline([
+        ('o', over_sampler),
+        ('u', under_sampler)
+    ])
+
+    # Rééchantillonnage pour l'ensemble d'entraînement
+    X_train_balanced, y_train_balanced = pipeline.fit_resample(X_train, y_train)
+
+    # Les ensembles de validation et de test ne sont pas rééchantillonnés
+    # car ils doivent conserver leur distribution d'origine pour évaluation
+    X_val_balanced, y_val_balanced = X_val, y_val
+    X_test_balanced, y_test_balanced = X_test, y_test
+
+    return X_train_balanced, y_train_balanced, X_val_balanced, y_val_balanced, X_test_balanced, y_test_balanced
+
+
+def handle_models():
+    dataframes = st.session_state.processed_data
+    loan_data_columns = dataframes['Loan_Data_train'].columns.tolist()
+    loan_data_columns.remove('default')
+
+    col1, col2, col3 = st.columns([4, 3, 2])
+
     with col1:
-        model_name = st.selectbox("Choose a model", ["LogisticRegression", "RandomForestClassifier"])
+        model_name = st.selectbox("Choose a model", ["LogisticRegression", "RandomForestClassifier", "XgBoost", "LightGBM"])
 
     with col2:
-        n_trials = st.number_input("Trials number for study", min_value=1, max_value=100, value=10)
+        n_trials = st.number_input("Trials number for optimization if True", min_value=1, max_value=1000, value=10)
 
     with col3:
         optimize = st.checkbox("Optimize hyperparameters", value=False)
 
     exp_name = f'exp_{model_name}'
+    col1, col2, col3 = st.columns([4, 3, 2])
+    with col1:
+        X_selected = st.multiselect("Select X_", loan_data_columns, loan_data_columns[:])
+        Y_selected = st.multiselect("Select Y_", 'default', 'default')
+        run_button = st.button("Run prediction")
+        from src.app.components import start_mlflow_ui
+        if st.button('Mlflow UI'):
+            start_mlflow_ui()
+    with col2:
+        st.markdown("##### X_")
+        st.write(X_selected)
 
-    if st.button("Run pipeline"):
+    with col3:
+        st.markdown("##### Y_")
+        st.write(Y_selected)
+
+    if run_button:
         st.write(f"""
         * Running pipeline for {model_name}\n
             - Experience name: '{exp_name}'
-            - Hyperparameters optimization: {'Yes' if optimize else 'No'}"
+            - Hyperparameters optimization: {'Yes' if optimize else 'No'}
             - Trials number: {n_trials}
         """)
-
         if model_name == 'LogisticRegression':
             run_logr_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
         if model_name == 'RandomForestClassifier':
             run_rf_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
+        if model_name == 'XgBoost':
+            run_xgboost_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
-def load_yaml(file_path):
-    """Load a YAML file and return its contents as a dictionary."""
-    with open(file_path, 'r') as file:
-        return yaml.safe_load(file)
+        if model_name == 'LightGBM':
+            run_lgb_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
-def check_mlruns_directory(mlruns_path):
-    """Check if the 'mlruns' directory exists."""
-    if not os.path.exists(mlruns_path):
-        raise FileNotFoundError(f"The specified directory '{mlruns_path}' does not exist.")
-
-def get_mlruns_data(mlruns_path):
-    """Retrieve information about experiments, runs, artifacts, metrics, params, and tags in the 'mlruns' folder."""
-    data = {
-        "experiments": []
-    }
-
-    # Iterate over experiments
-    for experiment_id in os.listdir(mlruns_path):
-        experiment_path = os.path.join(mlruns_path, experiment_id)
-
-        if not os.path.isdir(experiment_path) or experiment_id == "models":
-            continue
-
-        experiment_meta_file = os.path.join(experiment_path, "meta.yaml")       # Load experiment metadata
-        experiment_meta = load_yaml(experiment_meta_file) if os.path.exists(experiment_meta_file) else {}
-
-        experiment_data = {
-            "experiment_id": experiment_id,
-            "experiment_name": experiment_meta.get("name", ""),
-            "runs": []
-        }
-
-        for run_id in os.listdir(experiment_path):              # Iterate over runs within the experiment
-            run_path = os.path.join(experiment_path, run_id)
-
-            if not os.path.isdir(run_path):
-                continue
-
-            run_meta_file = os.path.join(run_path, "meta.yaml")     # Load run metadata
-            run_meta = load_yaml(run_meta_file) if os.path.exists(run_meta_file) else {}
-
-
-            metrics = {}    # Load metrics, params, and tags
-            metrics_path = os.path.join(run_path, "metrics")
-            if os.path.isdir(metrics_path):
-                for metric_file in os.listdir(metrics_path):
-                    with open(os.path.join(metrics_path, metric_file), 'r') as file:
-                        metrics[metric_file] = file.read().strip()
-
-            params = {}
-            params_path = os.path.join(run_path, "params")
-            if os.path.isdir(params_path):
-                for param_file in os.listdir(params_path):
-                    with open(os.path.join(params_path, param_file), 'r') as file:
-                        params[param_file] = file.read().strip()
-
-            tags = {}
-            tags_path = os.path.join(run_path, "tags")
-            if os.path.isdir(tags_path):
-                for tag_file in os.listdir(tags_path):
-                    with open(os.path.join(tags_path, tag_file), 'r') as file:
-                        tags[tag_file] = file.read().strip()
-
-
-            artifacts = []  # Load artifacts
-            artifacts_path = os.path.join(run_path, "artifacts")
-            if os.path.isdir(artifacts_path):
-                for artifact_file in os.listdir(artifacts_path):
-                    artifacts.append(artifact_file)
-
-            run_data = {
-                "run_id": run_id,
-                "run_name": run_meta.get("run_name", ""),
-                "metrics": metrics,
-                "params": params,
-                "tags": tags,
-                "artifacts": artifacts
-            }
-            experiment_data["runs"].append(run_data)
-        data["experiments"].append(experiment_data)
-
-    return data
-
-def save_data_to_json(data, output_file="models/mlruns_data.json"):
-    """Save the data to a local JSON file."""
-    with open(output_file, 'w') as json_file:
-        json.dump(data, json_file, indent=4)
-    print(f"Data successfully saved to {output_file}")
-
-def start_mlflow_ui(host="localhost", port=5001):
-    """
-    Start the MLflow server in a new process.
-    :param host: Host to run the MLflow server on.
-    :param port: Port to run the MLflow server on.
-    """
-    command = [
-        "mlflow", "server",
-        "--default-artifact-root", "artifacts/",
-        "--host", host,
-        "--port", str(port)
-    ]
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    print(f"MLflow UI started on http://{host}:{port}\n")
-    webbrowser.open(f"http://{host}:{port}")

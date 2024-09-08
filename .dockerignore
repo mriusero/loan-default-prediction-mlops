@@ -7,7 +7,7 @@ LICENSE
 
 ## --> directories
 .git*
-data/raw
-notebooks/
+notebooks/EDA.ipynb
+.ipynb_checkpoints
 mlruns/
 tests/
