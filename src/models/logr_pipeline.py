@@ -36,6 +36,5 @@ def run_logr_pipeline(optimize, n_trials, exp_name):
     predictions = pipeline.predict(X_new)
     st.write("Prédictions avec LogisticRegression :", predictions)
 
-    pipeline.start_mlflow_ui()
 
 
