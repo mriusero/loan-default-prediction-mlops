@@ -239,6 +239,22 @@ detect_missing_and_outliers(df)
     """)
     st.image('notebooks/output_13_7.png')
     st.markdown("""
+## Cleaning
+
+- **loan_amt_outstanding** (2.80) : Loan amounts may contain extreme values. Check if there are loans that are significantly higher than the norm.
+- **total_debt_outstanding** (3.90) : This column might also contain extreme values if the total debt amount is unusually high for some clients.
+- **income** (1.90) : Incomes can vary widely, but exceptionally high or low incomes compared to the norm might be outliers.
+- **fico_score** (2.00) : FICO scores generally vary within a defined range. Extremely low or high values might be outliers if they fall outside the expected ranges.
+""")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image('notebooks/output_15_2.png')
+        st.image('notebooks/output_17_2.png')
+    with col2:
+        st.image('notebooks/output_16_2.png')
+        st.image('notebooks/output_18_2.png')
+
+    st.markdown("""
 ## Correlation Analysis
 
 The `plot_correlation_matrix_and_histogram()` function analyzes the correlations between variables:
