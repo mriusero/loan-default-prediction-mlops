@@ -7,10 +7,11 @@ import mlflow.sklearn
 import optuna
 import streamlit as st
 import pandas as pd
+import warnings
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
-from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay, roc_auc_score, average_precision_score, f1_score, recall_score, precision_score
+
 
 
 def configure_mlflow(experiment_name="Default"):
@@ -44,6 +45,10 @@ class ModelPipeline:
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported.")
 
+        # Check if model has required methods
+        if not (hasattr(self.model, 'predict') and callable(getattr(self.model, 'predict'))):
+            raise ValueError("Model does not have 'predict' method.")
+
     def train(self, X_train, y_train):
         """Train the model using the training data."""
         if self.model is None:
@@ -51,21 +56,32 @@ class ModelPipeline:
         self.model.fit(X_train, y_train)
 
     def validate(self, X_val, y_val):
-        """Validate the model and return accuracy."""
+        """Validate the model and return various metrics."""
         if self.model is None:
             raise ValueError("Model is not initialized. Call 'initialize_model()' first.")
         y_pred = self.model.predict(X_val)
-        return accuracy_score(y_val, y_pred)
+        y_pred_proba = self.model.predict_proba(X_val)[:, 1]
+
+        metrics = {
+            'accuracy': accuracy_score(y_val, y_pred),
+            'auc_roc': roc_auc_score(y_val, y_pred_proba),
+            'pr_auc': average_precision_score(y_val, y_pred_proba),
+            'f1': f1_score(y_val, y_pred),
+            'recall': recall_score(y_val, y_pred),
+            'precision': precision_score(y_val, y_pred)
+        }
+        return metrics
 
     def log_params(self):
         """Log model parameters to MLflow."""
         mlflow.log_params(self.params)
         print(f"- parameters logged to MLflow: {self.params}")
 
-    def log_metrics(self, accuracy):
+    def log_metrics(self, metrics):
         """Log model metrics to MLflow."""
-        mlflow.log_metric("accuracy", accuracy)
-        print(f"-- accuracy logged to MLflow: {accuracy}")
+        for key, value in metrics.items():
+            mlflow.log_metric(key, value)
+            print(f"-- {key} logged to MLflow: {value}")
 
     def log_artifacts(self):
         """Save training logs and plots to MLflow."""
@@ -94,8 +110,18 @@ class ModelPipeline:
                 pickle.dump(self.model, f)
             print(f"----- model saved locally at: {new_file_path}")
 
+            # Define model signature
+            signature = mlflow.models.infer_signature(X_sample, self.model.predict(X_sample))
+
+            # Log model with signature
+            mlflow.sklearn.log_model(
+                sk_model=self.model,
+                artifact_path="model",
+                signature=signature
+            )
             mlflow.log_artifact(new_file_path)
             print(f"------ local model file '{new_file_path}' logged to MLflow as an artifact.")
+
 
     def _get_versioned_file_path(self):
         """Generate a new file path for the model with an incremented version number."""
@@ -113,10 +139,11 @@ class ModelPipeline:
         :param trial: Optuna trial object.
         :param X_train: Feature matrix for training.
         :param y_train: Target vector for training.
-        :param X_test: Feature matrix for testing.
-        :param y_test: Target vector for testing.
+        :param X_val: Feature matrix for validation.
+        :param y_val: Target vector for validation.
         :return: Loss value to minimize.
         """
+        # Define hyperparameter search space based on model type
         if self.model_type == 'random_forest':
             params = {
                 'n_estimators': trial.suggest_int('n_estimators', 50, 200),
@@ -125,24 +152,50 @@ class ModelPipeline:
                 'random_state': 42
             }
         elif self.model_type == 'logistic_regression':
+            # Utiliser suggest_float avec log=True pour remplacer suggest_loguniform
             params = {
-                'C': trial.suggest_loguniform('C', 1e-3, 1e2),
+                'C': trial.suggest_float('C', 1e-3, 1e2, log=True),
                 'max_iter': trial.suggest_int('max_iter', 100, 1000)
             }
         else:
             raise ValueError(f"Model type '{self.model_type}' is not supported for optimization.")
 
+        # Initialize and train model
         self.initialize_model(params)
         self.train(X_train, y_train)
-        accuracy = self.validate(X_val, y_val)
-        return 1 - accuracy  # Minimize 1 - accuracy to maximize accuracy
+
+        # Predict probabilities and labels on validation set
+        y_val_pred_proba = self.model.predict_proba(X_val)[:, 1]
+        y_val_pred = self.model.predict(X_val)
+
+        # Calculate the metrics in order of priority
+        auc_roc = roc_auc_score(y_val, y_val_pred_proba)
+        pr_auc = average_precision_score(y_val, y_val_pred_proba)
+        f1 = f1_score(y_val, y_val_pred)
+        recall = recall_score(y_val, y_val_pred)
+        precision = precision_score(y_val, y_val_pred)
+
+        # Define a composite score based on priority
+        # Higher weights for higher priority metrics
+        composite_score = (0.4 * auc_roc) + (0.3 * pr_auc) + (0.2 * f1) + (0.05 * recall) + (0.05 * precision)
+
+        # Return the negative composite score to maximize it
+        return -composite_score
 
     def optimize_hyperparameters(self, X_train, y_train, X_val, y_val, n_trials=10):
         """Optimize hyperparameters using Optuna."""
-        study = optuna.create_study(direction='minimize')
-        study.optimize(lambda trial: self.objective(trial, X_train, y_train, X_val, y_val), n_trials=n_trials)
-        self.params = study.best_params
-        st.write("Best hyperparameters found: ", self.params)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", category=FutureWarning)
+            warnings.simplefilter("ignore", category=UserWarning)
+
+            # Désactiver l'autologging pendant l'optimisation
+            mlflow.autolog(disable=True)
+
+            with mlflow.start_run(nested=True):
+                study = optuna.create_study(direction='minimize')
+                study.optimize(lambda trial: self.objective(trial, X_train, y_train, X_val, y_val), n_trials=n_trials)
+                self.params = study.best_params
+                st.write("Best hyperparameters found: ", self.params)
 
     def run_pipeline(self, optimize=False, n_trials=10):
         """Run the complete ML pipeline."""
@@ -152,18 +205,19 @@ class ModelPipeline:
         from src.app import get_data_splits
         X_train, y_train, X_val, y_val, X_test, y_test = get_data_splits()
 
-        #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
         if optimize:
             self.optimize_hyperparameters(X_train, y_train, X_val, y_val, n_trials)
 
-        # Use mlflow.autolog to automatically log parameters, metrics, and model
+        # Initialize and train model
+        self.initialize_model()  # Use best params if optimized
+        self.train(X_train, y_train)
+
+        # Use mlflow.autolog after training
         mlflow.autolog(log_input_examples=True, log_model_signatures=True)
 
         with mlflow.start_run() as run:
-            self.initialize_model()  # Use best params if optimized
-            self.train(X_train, y_train)
-            accuracy = self.validate(X_val, y_val)
+            metrics = self.validate(X_val, y_val)
+            self.log_metrics(metrics)
 
             # Log additional custom tags
             mlflow.set_tag("model_version", f'{self.model_type}_{self.get_next_version()}')
@@ -172,7 +226,10 @@ class ModelPipeline:
             print("Experience completed successfully!")
 
             # Display results on Streamlit
-            self.display_results_on_streamlit(accuracy, X_val, y_val)
+            self.display_results_on_streamlit(metrics, X_val, y_val)
+
+            # Log model to MLflow
+            self.log_model(X_val)  # Pass a sample for signature inference
 
         predictions = self.predict(X_test)
         st.write(f"Predictions {self.experiment_name}:", predictions)
@@ -206,7 +263,7 @@ class ModelPipeline:
         """Load a model from MLflow."""
         return mlflow.sklearn.load_model(model_uri)
 
-    def display_results_on_streamlit(self, accuracy, X_val, y_val):
+    def display_results_on_streamlit(self, metrics, X_val, y_val):
         """Display the model's parameters, accuracy, and confusion matrix on Streamlit."""
         st.write(f"## Experiment: {self.experiment_name}")
         st.write(f"### Model Type: {self.model_type}")
@@ -216,10 +273,11 @@ class ModelPipeline:
             st.json(self.params)
         with col2:
             st.write("### Metrics:")
-            st.write(f"Accuracy: {accuracy:.4f}")
+            for key, value in metrics.items():
+                st.write(f"{key}: {value:.4f}")
         with col3:
-            st.write("### Confusion Matrix_:")
-            y_pred = self.predict(X_val).drop('customer_id', axis=1)
+            st.write("### Confusion Matrix:")
+            y_pred = self.model.predict(X_val)
             cm = confusion_matrix(y_val, y_pred)
             disp = ConfusionMatrixDisplay(confusion_matrix=cm)
             fig, ax = plt.subplots()

@@ -1,21 +1,20 @@
 {
     "experiments": [
         {
-            "experiment_id": "140013775100245068",
+            "experiment_id": "541924689781010332",
             "experiment_name": "exp_RandomForestClassifier",
             "runs": [
                 {
-                    "run_id": "b84a5461277b47cd8ad84e8b01fef3c1",
-                    "run_name": "caring-wren-257",
+                    "run_id": "970b42bac40c48ca9cab5e26e848301e",
+                    "run_name": "stylish-mouse-472",
                     "metrics": {
-                        "training_score": "1725807100034 1.0 0",
-                        "training_roc_auc": "1725807099802 1.0 0",
-                        "accuracy_score_X_test": "1725807102249 1.0 0",
-                        "training_accuracy_score": "1725807099802 1.0 0",
-                        "training_precision_score": "1725807099802 1.0 0",
-                        "training_log_loss": "1725807099802 0.04306424884868627 0",
-                        "training_f1_score": "1725807099802 1.0 0",
-                        "training_recall_score": "1725807099802 1.0 0"
+                        "training_score": "1725819349060 0.9940169176810398 0",
+                        "training_roc_auc": "1725819348326 0.9999077187989194 0",
+                        "training_accuracy_score": "1725819348326 0.9940169176810398 0",
+                        "training_precision_score": "1725819348326 0.9940576310391435 0",
+                        "training_log_loss": "1725819348326 0.02819930730385177 0",
+                        "training_f1_score": "1725819348326 0.9940167944178939 0",
+                        "training_recall_score": "1725819348326 0.9940169176810398 0"
                     },
                     "params": {
                         "bootstrap": "True",
@@ -42,45 +41,46 @@
                         "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
                         "mlflow.user": "mariusayrault",
                         "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "caring-wren-257",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "stylish-mouse-472",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"b84a5461277b47cd8ad84e8b01fef3c1\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:51:40.068007\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"1a1295d5089b49aeb09db0bb82c37ca3\"}]",
+                        "mlflow.log-model.history": "[{\"run_id\": \"970b42bac40c48ca9cab5e26e848301e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:49.086560\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"61650c2adcbd499982764194ab10c3f1\"}]",
                         "experiment_name": "exp_RandomForestClassifier",
                         "mlflow.source.type": "LOCAL",
                         "model_version": "random_forest_000"
                     },
                     "artifacts": [
+                        "training_roc_curve.png",
                         "model",
-                        "metric_info.json",
+                        "training_precision_recall_curve.png",
                         "estimator.html",
                         "training_confusion_matrix.png"
                     ]
                 },
                 {
-                    "run_id": "a1fe2d5077f4438f88aeb17672377cad",
-                    "run_name": "likeable-dog-663",
+                    "run_id": "324de9a42261448aa640f35271248c9a",
+                    "run_name": "amazing-bee-181",
                     "metrics": {
-                        "training_score": "1725806104285 1.0 0",
-                        "training_roc_auc": "1725806103998 1.0 0",
-                        "training_accuracy_score": "1725806103998 1.0 0",
-                        "training_precision_score": "1725806103998 1.0 0",
-                        "training_log_loss": "1725806103998 0.04306424884868627 0",
-                        "training_f1_score": "1725806103998 1.0 0",
-                        "training_recall_score": "1725806103998 1.0 0"
+                        "training_score": "1725819098316 1.0 0",
+                        "training_roc_auc": "1725819097537 1.0 0",
+                        "training_accuracy_score": "1725819097537 1.0 0",
+                        "training_precision_score": "1725819097537 1.0 0",
+                        "training_log_loss": "1725819097537 0.006768094422643887 0",
+                        "training_f1_score": "1725819097537 1.0 0",
+                        "training_recall_score": "1725819097537 1.0 0"
                     },
                     "params": {
                         "bootstrap": "True",
-                        "max_depth": "5",
+                        "max_depth": "17",
                         "max_samples": "None",
                         "min_weight_fraction_leaf": "0.0",
                         "max_leaf_nodes": "None",
                         "class_weight": "None",
                         "min_samples_leaf": "1",
-                        "random_state": "42",
+                        "random_state": "None",
                         "min_impurity_decrease": "0.0",
                         "verbose": "0",
-                        "n_estimators": "100",
+                        "n_estimators": "138",
                         "criterion": "gini",
                         "oob_score": "False",
                         "ccp_alpha": "0.0",
@@ -94,16 +94,70 @@
                         "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
                         "mlflow.user": "mariusayrault",
                         "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "likeable-dog-663",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "amazing-bee-181",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"a1fe2d5077f4438f88aeb17672377cad\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:35:04.310231\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9ba60007f41c41eeaad2323c3cd2c348\"}]",
+                        "mlflow.log-model.history": "[{\"run_id\": \"324de9a42261448aa640f35271248c9a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:11:38.348057\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"a3d3dc26d10046c7b0c3f8971b3b6101\"}]",
                         "experiment_name": "exp_RandomForestClassifier",
                         "mlflow.source.type": "LOCAL",
                         "model_version": "random_forest_000"
                     },
                     "artifacts": [
+                        "training_roc_curve.png",
                         "model",
+                        "training_precision_recall_curve.png",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
+                    "run_id": "74dd58e82ff14f3fbe71c4a55fcc4e0a",
+                    "run_name": "chill-rat-41",
+                    "metrics": {
+                        "training_score": "1725819369410 0.999484217041469 0\n1725819373803 0.9997936868165875 0\n1725819378608 0.9979368681658758 0\n1725819383836 0.9990715906746441 0\n1725819389331 0.999484217041469 0\n1725819394778 1.0 0\n1725819399231 0.9996905302248814 0\n1725819404687 1.0 0\n1725819410533 0.9987621208995254 0\n1725819416726 0.9977305549824633 0",
+                        "training_roc_auc": "1725819368591 0.9999993615230552 0\n1725819373154 0.9999997871743518 0\n1725819377786 0.9999856129861784 0\n1725819382999 0.9999979568737769 0\n1725819388487 0.9999993189579256 0\n1725819393938 1.0 0\n1725819398476 0.9999997871743517 0\n1725819403767 1.0 0\n1725819409562 0.9999979143086472 0\n1725819415819 0.9999843360322889 0",
+                        "training_accuracy_score": "1725819368591 0.999484217041469 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368681658758 0\n1725819382999 0.9990715906746441 0\n1725819388487 0.999484217041469 0\n1725819393938 1.0 0\n1725819398476 0.9996905302248814 0\n1725819403767 1.0 0\n1725819409562 0.9987621208995254 0\n1725819415819 0.9977305549824633 0",
+                        "training_precision_score": "1725819368591 0.9994844083870363 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979399202282015 0\n1725819382999 0.999071611917692 0\n1725819388487 0.9994847485572959 0\n1725819393938 1.0 0\n1725819398476 0.9996905514942745 0\n1725819403767 1.0 0\n1725819409562 0.9987624605777463 0\n1725819415819 0.9977347074663648 0",
+                        "training_log_loss": "1725819368591 0.009007011262496437 0\n1725819373154 0.008056528690526052 0\n1725819377786 0.015145400506125383 0\n1725819382999 0.01037534938951818 0\n1725819388487 0.008799620534047457 0\n1725819393938 0.007172637049162029 0\n1725819398476 0.008541255300932854 0\n1725819403767 0.006484139619264421 0\n1725819409562 0.010661489902576801 0\n1725819415819 0.01528433179328354 0",
+                        "training_f1_score": "1725819368591 0.9994842169920716 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368650044418 0\n1725819382999 0.9990715906647646 0\n1725819388487 0.999484216904254 0\n1725819393938 1.0 0\n1725819398476 0.9996905302215883 0\n1725819403767 1.0 0\n1725819409562 0.9987621206887635 0\n1725819415819 0.9977305502490915 0",
+                        "training_recall_score": "1725819368591 0.999484217041469 0\n1725819373154 0.9997936868165875 0\n1725819377786 0.9979368681658758 0\n1725819382999 0.9990715906746441 0\n1725819388487 0.999484217041469 0\n1725819393938 1.0 0\n1725819398476 0.9996905302248814 0\n1725819403767 1.0 0\n1725819409562 0.9987621208995254 0\n1725819415819 0.9977305549824633 0"
+                    },
+                    "params": {
+                        "bootstrap": "True",
+                        "max_depth": "10",
+                        "max_samples": "None",
+                        "min_weight_fraction_leaf": "0.0",
+                        "max_leaf_nodes": "None",
+                        "class_weight": "None",
+                        "min_samples_leaf": "1",
+                        "random_state": "42",
+                        "min_impurity_decrease": "0.0",
+                        "verbose": "0",
+                        "n_estimators": "174",
+                        "criterion": "gini",
+                        "oob_score": "False",
+                        "ccp_alpha": "0.0",
+                        "warm_start": "False",
+                        "max_features": "sqrt",
+                        "monotonic_cst": "None",
+                        "n_jobs": "None",
+                        "min_samples_split": "7"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
+                        "phase": "hyperparameter_optimization",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "RandomForestClassifier",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "chill-rat-41",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:09.448869\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"5fcffc33745f4fc2b2c84c5c86cb7a1f\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:13.818514\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9ff92abaf2174c4abc3aec50a11f9e57\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:18.643034\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"1ba63c57eff348e696282fb4b8d074ee\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:23.874879\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e5dc270587034d56bdb1bb2748123391\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:29.376652\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"f5d83e91578045db947a68f9313e57c0\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:34.818387\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"f63ada3cde2d4ebdb239753d9ef620b7\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:39.255466\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b7e56cf7f2434335890de2313390e3a4\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:44.725848\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8e54292007ac47fd8854a15c553436a8\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:50.579092\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8d0975cb10754c7d99936aece7fbe229\"}, {\"run_id\": \"74dd58e82ff14f3fbe71c4a55fcc4e0a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:56.761491\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e08df4e2bf944e98aba2bc3093ec77e6\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "training_roc_curve.png",
+                        "model",
+                        "training_precision_recall_curve.png",
                         "estimator.html",
                         "training_confusion_matrix.png"
                     ]
@@ -117,30 +171,59 @@
                     "artifacts": []
                 },
                 {
-                    "run_id": "4ba16ca3be8b42e898bfaa6025538e77",
-                    "run_name": "amazing-mouse-532",
+                    "run_id": "c6bed43bb30d4eedadf12cb80a66f950",
+                    "run_name": "big-vole-789",
+                    "metrics": {},
+                    "params": {
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
+                        "n_jobs": "None",
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "big-vole-789",
+                        "mlflow.autologging": "sklearn",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"c6bed43bb30d4eedadf12cb80a66f950\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:16:03.690347\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3eaca69bcd084ea4b32e2e6fd1bd98fb\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "model",
+                        "estimator.html"
+                    ]
+                },
+                {
+                    "run_id": "11e8577911ae4e1abfd2bcf0795ffb09",
+                    "run_name": "dazzling-worm-702",
                     "metrics": {
-                        "training_score": "1725806306761 1.0 0",
-                        "training_roc_auc": "1725806306512 1.0 0",
-                        "accuracy_score_X_test": "1725806309795 1.0 0",
-                        "training_accuracy_score": "1725806306512 1.0 0",
-                        "training_precision_score": "1725806306512 1.0 0",
-                        "training_log_loss": "1725806306512 0.04306424884868627 0",
-                        "training_f1_score": "1725806306512 1.0 0",
-                        "training_recall_score": "1725806306512 1.0 0"
+                        "training_score": "1725819424313 1.0 0",
+                        "training_roc_auc": "1725819423437 1.0 0",
+                        "training_accuracy_score": "1725819423437 1.0 0",
+                        "training_precision_score": "1725819423437 1.0 0",
+                        "training_log_loss": "1725819423437 0.006471873184984225 0",
+                        "training_f1_score": "1725819423437 1.0 0",
+                        "training_recall_score": "1725819423437 1.0 0"
                     },
                     "params": {
                         "bootstrap": "True",
-                        "max_depth": "5",
+                        "max_depth": "17",
                         "max_samples": "None",
                         "min_weight_fraction_leaf": "0.0",
                         "max_leaf_nodes": "None",
                         "class_weight": "None",
                         "min_samples_leaf": "1",
-                        "random_state": "42",
+                        "random_state": "None",
                         "min_impurity_decrease": "0.0",
                         "verbose": "0",
-                        "n_estimators": "100",
+                        "n_estimators": "162",
                         "criterion": "gini",
                         "oob_score": "False",
                         "ccp_alpha": "0.0",
@@ -148,536 +231,72 @@
                         "max_features": "sqrt",
                         "monotonic_cst": "None",
                         "n_jobs": "None",
-                        "min_samples_split": "2"
+                        "min_samples_split": "4"
                     },
                     "tags": {
                         "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
                         "mlflow.user": "mariusayrault",
                         "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "amazing-mouse-532",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "dazzling-worm-702",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"4ba16ca3be8b42e898bfaa6025538e77\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:38:26.786633\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"ca7260e598dc419491eba4a673bdebca\"}]",
+                        "mlflow.log-model.history": "[{\"run_id\": \"11e8577911ae4e1abfd2bcf0795ffb09\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:17:04.354071\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"170d5636954e458faed57c5f2e8385d3\"}]",
                         "experiment_name": "exp_RandomForestClassifier",
                         "mlflow.source.type": "LOCAL",
                         "model_version": "random_forest_000"
                     },
                     "artifacts": [
+                        "training_roc_curve.png",
                         "model",
-                        "metric_info.json",
+                        "training_precision_recall_curve.png",
                         "estimator.html",
                         "training_confusion_matrix.png"
                     ]
                 },
                 {
-                    "run_id": "707ea38e053346fba5c5a2f2b9d88fb9",
-                    "run_name": "dashing-zebra-575",
-                    "metrics": {
-                        "training_score": "1725807074624 1.0 0",
-                        "training_roc_auc": "1725807074381 1.0 0",
-                        "accuracy_score_X_test": "1725807076931 1.0 0",
-                        "training_accuracy_score": "1725807074381 1.0 0",
-                        "training_precision_score": "1725807074381 1.0 0",
-                        "training_log_loss": "1725807074381 0.04306424884868627 0",
-                        "training_f1_score": "1725807074381 1.0 0",
-                        "training_recall_score": "1725807074381 1.0 0"
-                    },
+                    "run_id": "cd9900c95f1548daaf9bb937e83e5747",
+                    "run_name": "worried-chimp-958",
+                    "metrics": {},
                     "params": {
-                        "bootstrap": "True",
-                        "max_depth": "5",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "42",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "100",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
+                        "n_neighbors": "6",
+                        "leaf_size": "30",
+                        "algorithm": "auto",
+                        "radius": "1.0",
                         "n_jobs": "None",
-                        "min_samples_split": "2"
+                        "metric": "minkowski",
+                        "metric_params": "None",
+                        "p": "2"
                     },
                     "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
+                        "estimator_class": "sklearn.neighbors._unsupervised.NearestNeighbors",
                         "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "dashing-zebra-575",
+                        "estimator_name": "NearestNeighbors",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "worried-chimp-958",
+                        "mlflow.autologging": "sklearn",
                         "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"707ea38e053346fba5c5a2f2b9d88fb9\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:51:14.652319\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"1b1e73aa9ba245109482be1192a4bea6\"}]",
-                        "experiment_name": "exp_RandomForestClassifier",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "random_forest_000"
+                        "mlflow.log-model.history": "[{\"run_id\": \"cd9900c95f1548daaf9bb937e83e5747\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:44.452115\", \"flavors\": {\"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"8949eb39e2ec4be794e27ccce2f52419\"}]",
+                        "mlflow.source.type": "LOCAL"
                     },
                     "artifacts": [
                         "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
+                        "estimator.html"
                     ]
                 },
                 {
-                    "run_id": "760f293fbbaa41c39c3826793819c96e",
-                    "run_name": "gregarious-gull-25",
-                    "metrics": {
-                        "training_score": "1725806173152 1.0 0",
-                        "training_roc_auc": "1725806172899 1.0 0",
-                        "accuracy_score_X_test": "1725806176449 1.0 0",
-                        "training_accuracy_score": "1725806172899 1.0 0",
-                        "training_precision_score": "1725806172899 1.0 0",
-                        "training_log_loss": "1725806172899 0.04306424884868627 0",
-                        "training_f1_score": "1725806172899 1.0 0",
-                        "training_recall_score": "1725806172899 1.0 0"
-                    },
-                    "params": {
-                        "bootstrap": "True",
-                        "max_depth": "5",
-                        "max_samples": "None",
-                        "min_weight_fraction_leaf": "0.0",
-                        "max_leaf_nodes": "None",
-                        "class_weight": "None",
-                        "min_samples_leaf": "1",
-                        "random_state": "42",
-                        "min_impurity_decrease": "0.0",
-                        "verbose": "0",
-                        "n_estimators": "100",
-                        "criterion": "gini",
-                        "oob_score": "False",
-                        "ccp_alpha": "0.0",
-                        "warm_start": "False",
-                        "max_features": "sqrt",
-                        "monotonic_cst": "None",
-                        "n_jobs": "None",
-                        "min_samples_split": "2"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.ensemble._forest.RandomForestClassifier",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "RandomForestClassifier",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "gregarious-gull-25",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"760f293fbbaa41c39c3826793819c96e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:36:13.180678\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"0ff6e470ec4f447cbdf8acd614b6c99a\"}]",
-                        "experiment_name": "exp_RandomForestClassifier",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "random_forest_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                }
-            ]
-        },
-        {
-            "experiment_id": "193413168772969292",
-            "experiment_name": "exp_LogisticRegression",
-            "runs": [
-                {
-                    "run_id": "35d83c5822664cf89df1e7e0bab3c764",
-                    "run_name": "respected-crane-337",
-                    "metrics": {
-                        "training_score": "1725806325644 0.975 0",
-                        "training_roc_auc": "1725806325433 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725806328420 1.0 0",
-                        "training_accuracy_score": "1725806325433 0.975 0",
-                        "training_precision_score": "1725806325433 0.9767857142857144 0",
-                        "training_log_loss": "1725806325433 0.13563188261551437 0",
-                        "training_f1_score": "1725806325433 0.9749882794186592 0",
-                        "training_recall_score": "1725806325433 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "respected-crane-337",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"35d83c5822664cf89df1e7e0bab3c764\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:38:45.649155\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"aca7325a65da4d23b3b38739bad1d5bf\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "datasets",
-                    "run_name": "",
+                    "run_id": "533e4f4e4139427d99005faf585eb0ff",
+                    "run_name": "shivering-goat-240",
                     "metrics": {},
                     "params": {},
-                    "tags": {},
+                    "tags": {
+                        "phase": "hyperparameter_optimization",
+                        "mlflow.user": "mariusayrault",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "shivering-goat-240",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.source.type": "LOCAL"
+                    },
                     "artifacts": []
-                },
-                {
-                    "run_id": "ef7d657cd0c247e489e86d4cf91f5699",
-                    "run_name": "rebellious-vole-22",
-                    "metrics": {
-                        "training_score": "1725806949781 0.975 0",
-                        "training_roc_auc": "1725806949523 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725806952785 1.0 0",
-                        "training_accuracy_score": "1725806949523 0.975 0",
-                        "training_precision_score": "1725806949523 0.9767857142857144 0",
-                        "training_log_loss": "1725806949523 0.13563188261551437 0",
-                        "training_f1_score": "1725806949523 0.9749882794186592 0",
-                        "training_recall_score": "1725806949523 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "rebellious-vole-22",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"ef7d657cd0c247e489e86d4cf91f5699\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:49:09.785054\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9b3e6b995dcc44e79d5994c36cb0f2f5\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "421bc6b4026f453a95744b15e79eaa3e",
-                    "run_name": "victorious-fawn-811",
-                    "metrics": {
-                        "training_score": "1725807932669 0.975 0",
-                        "training_roc_auc": "1725807932420 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725807935618 1.0 0",
-                        "training_accuracy_score": "1725807932420 0.975 0",
-                        "training_precision_score": "1725807932420 0.9767857142857144 0",
-                        "training_log_loss": "1725807932420 0.13563188261551437 0",
-                        "training_f1_score": "1725807932420 0.9749882794186592 0",
-                        "training_recall_score": "1725807932420 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "victorious-fawn-811",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"421bc6b4026f453a95744b15e79eaa3e\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 15:05:32.672423\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"378a2f2bf3834b059932883550ab216e\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "60a9c7e16ab74bfb83ab18c175524bfb",
-                    "run_name": "unleashed-seal-432",
-                    "metrics": {
-                        "training_score": "1725806501750 0.975 0",
-                        "training_roc_auc": "1725806501542 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725806503863 1.0 0",
-                        "training_accuracy_score": "1725806501542 0.975 0",
-                        "training_precision_score": "1725806501542 0.9767857142857144 0",
-                        "training_log_loss": "1725806501542 0.13563188261551437 0",
-                        "training_f1_score": "1725806501542 0.9749882794186592 0",
-                        "training_recall_score": "1725806501542 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "unleashed-seal-432",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"60a9c7e16ab74bfb83ab18c175524bfb\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:41:41.753749\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3f9785f76c654848b2cca5874b2f3369\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "7b91be5b3d614f489b8c8b4d8974c5fc",
-                    "run_name": "angry-shoat-484",
-                    "metrics": {
-                        "training_score": "1725806476412 0.975 0",
-                        "training_roc_auc": "1725806476145 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725806478516 1.0 0",
-                        "training_accuracy_score": "1725806476145 0.975 0",
-                        "training_precision_score": "1725806476145 0.9767857142857144 0",
-                        "training_log_loss": "1725806476145 0.13563188261551437 0",
-                        "training_f1_score": "1725806476145 0.9749882794186592 0",
-                        "training_recall_score": "1725806476145 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "angry-shoat-484",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"7b91be5b3d614f489b8c8b4d8974c5fc\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:41:16.416489\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"22cb9adb2f2747a08dd1a49f74f8c003\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "92b2a2787f30403c9a0168f5f47b2052",
-                    "run_name": "stylish-chimp-479",
-                    "metrics": {
-                        "training_score": "1725807066520 0.975 0",
-                        "training_roc_auc": "1725807066263 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725807069362 1.0 0",
-                        "training_accuracy_score": "1725807066263 0.975 0",
-                        "training_precision_score": "1725807066263 0.9767857142857144 0",
-                        "training_log_loss": "1725807066263 0.13563188261551437 0",
-                        "training_f1_score": "1725807066263 0.9749882794186592 0",
-                        "training_recall_score": "1725807066263 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "stylish-chimp-479",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"92b2a2787f30403c9a0168f5f47b2052\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:51:06.523700\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"727e528ecedf46068496546cbee6be51\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "8a2edbafdd7d4716b0cf7c11511a0d5d",
-                    "run_name": "enchanting-shoat-991",
-                    "metrics": {
-                        "training_score": "1725806432869 0.975 0",
-                        "training_roc_auc": "1725806432584 0.9981238273921201 0",
-                        "training_accuracy_score": "1725806432584 0.975 0",
-                        "training_precision_score": "1725806432584 0.9767857142857144 0",
-                        "training_log_loss": "1725806432584 0.13563188261551437 0",
-                        "training_f1_score": "1725806432584 0.9749882794186592 0",
-                        "training_recall_score": "1725806432584 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "enchanting-shoat-991",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"8a2edbafdd7d4716b0cf7c11511a0d5d\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:40:32.874112\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"deb5946b58f941829dcdf43f8e1da17f\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
-                },
-                {
-                    "run_id": "5b22e9b1a3c748009aebef3de1ab620a",
-                    "run_name": "peaceful-slug-244",
-                    "metrics": {
-                        "training_score": "1725806686231 0.975 0",
-                        "training_roc_auc": "1725806685965 0.9981238273921201 0",
-                        "accuracy_score_X_test": "1725806689272 1.0 0",
-                        "training_accuracy_score": "1725806685965 0.975 0",
-                        "training_precision_score": "1725806685965 0.9767857142857144 0",
-                        "training_log_loss": "1725806685965 0.13563188261551437 0",
-                        "training_f1_score": "1725806685965 0.9749882794186592 0",
-                        "training_recall_score": "1725806685965 0.975 0"
-                    },
-                    "params": {
-                        "tol": "0.0001",
-                        "penalty": "l2",
-                        "class_weight": "None",
-                        "random_state": "42",
-                        "solver": "lbfgs",
-                        "verbose": "0",
-                        "fit_intercept": "True",
-                        "max_iter": "200",
-                        "dual": "False",
-                        "warm_start": "False",
-                        "l1_ratio": "None",
-                        "multi_class": "deprecated",
-                        "n_jobs": "None",
-                        "intercept_scaling": "1",
-                        "C": "1.0"
-                    },
-                    "tags": {
-                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
-                        "mlflow.user": "mariusayrault",
-                        "estimator_name": "LogisticRegression",
-                        "mlflow.source.git.commit": "c50a0441c0ef8be11f99e2d46076329f775f204d",
-                        "mlflow.runName": "peaceful-slug-244",
-                        "mlflow.source.name": "app.py",
-                        "mlflow.log-model.history": "[{\"run_id\": \"5b22e9b1a3c748009aebef3de1ab620a\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 14:44:46.234921\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"a470f32209f34d89b39827bacc942b69\"}]",
-                        "experiment_name": "exp_LogisticRegression",
-                        "mlflow.source.type": "LOCAL",
-                        "model_version": "logistic_regression_000"
-                    },
-                    "artifacts": [
-                        "model",
-                        "metric_info.json",
-                        "estimator.html",
-                        "training_confusion_matrix.png"
-                    ]
                 }
             ]
         },
@@ -685,6 +304,215 @@
             "experiment_id": "0",
             "experiment_name": "Default",
             "runs": []
+        },
+        {
+            "experiment_id": "613773138061666110",
+            "experiment_name": "exp_LogisticRegression",
+            "runs": [
+                {
+                    "run_id": "099dd891a7334fb399f5f67966879ba8",
+                    "run_name": "nervous-snail-852",
+                    "metrics": {
+                        "training_score": "1725819315856 0.9885496183206107 0",
+                        "training_roc_auc": "1725819315233 0.9994705749174161 0",
+                        "training_accuracy_score": "1725819315233 0.9885496183206107 0",
+                        "training_precision_score": "1725819315233 0.9885671076912494 0",
+                        "training_log_loss": "1725819315233 0.028897047462537604 0",
+                        "training_f1_score": "1725819315233 0.9885495158465809 0",
+                        "training_recall_score": "1725819315233 0.9885496183206107 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "42",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "200",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "nervous-snail-852",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"099dd891a7334fb399f5f67966879ba8\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:15:15.863748\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"24b6da22698c4b958a3990957afacbdb\"}]",
+                        "experiment_name": "exp_LogisticRegression",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_000"
+                    },
+                    "artifacts": [
+                        "training_roc_curve.png",
+                        "model",
+                        "training_precision_recall_curve.png",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
+                    "run_id": "3a1158cd68864687a8140ed7c6b20108",
+                    "run_name": "angry-sloth-175",
+                    "metrics": {
+                        "training_score": "1725818549242 0.9865118661430766 0",
+                        "training_roc_auc": "1725818548614 0.9988336155670446 0",
+                        "training_accuracy_score": "1725818548614 0.9865118661430766 0",
+                        "training_precision_score": "1725818548614 0.9864720613428352 0",
+                        "training_log_loss": "1725818548614 0.03278726590864797 0",
+                        "training_f1_score": "1725818548614 0.9864879392915524 0",
+                        "training_recall_score": "1725818548614 0.9865118661430766 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "42",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "200",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "1.0"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "angry-sloth-175",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"3a1158cd68864687a8140ed7c6b20108\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:29.248164\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3df96e492359482497b25c8401468de5\"}]",
+                        "experiment_name": "exp_LogisticRegression",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_000"
+                    },
+                    "artifacts": [
+                        "training_roc_curve.png",
+                        "model",
+                        "training_precision_recall_curve.png",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
+                    "run_id": "8cfef012c1aa4f2ba7babb161b0c9be6",
+                    "run_name": "capable-cow-299",
+                    "metrics": {
+                        "training_score": "1725818565194 0.9866826020146833 0\n1725818568369 0.9865118661430766 0\n1725818571276 0.9865118661430766 0\n1725818574472 0.9865118661430766 0\n1725818577643 0.9873655455011098 0\n1725818580466 0.9865118661430766 0\n1725818583283 0.9865118661430766 0\n1725818586174 0.9865118661430766 0\n1725818589037 0.9865118661430766 0\n1725818592079 0.9865118661430766 0",
+                        "training_roc_auc": "1725818564604 0.9990174589978081 0\n1725818567808 0.9988346369194377 0\n1725818570682 0.9988344326489591 0\n1725818573878 0.9988344326489591 0\n1725818577064 0.9991406340964197 0\n1725818579906 0.9988344326489591 0\n1725818582733 0.9988344326489591 0\n1725818585630 0.9988342283784805 0\n1725818588483 0.9988346369194377 0\n1725818591300 0.9988342283784805 0",
+                        "training_accuracy_score": "1725818564604 0.9866826020146833 0\n1725818567808 0.9865118661430766 0\n1725818570682 0.9865118661430766 0\n1725818573878 0.9865118661430766 0\n1725818577064 0.9873655455011098 0\n1725818579906 0.9865118661430766 0\n1725818582733 0.9865118661430766 0\n1725818585630 0.9865118661430766 0\n1725818588483 0.9865118661430766 0\n1725818591300 0.9865118661430766 0",
+                        "training_precision_score": "1725818564604 0.9866284247620619 0\n1725818567808 0.9864720613428352 0\n1725818570682 0.9864720613428352 0\n1725818573878 0.9864720613428352 0\n1725818577064 0.9873078591012847 0\n1725818579906 0.9864720613428352 0\n1725818582733 0.9864720613428352 0\n1725818585630 0.9864720613428352 0\n1725818588483 0.9864720613428352 0\n1725818591300 0.9864720613428352 0",
+                        "training_log_loss": "1725818564604 0.03006379407767408 0\n1725818567808 0.03278714979831205 0\n1725818570682 0.032787138621041156 0\n1725818573878 0.03278713771696113 0\n1725818577064 0.027806736125683743 0\n1725818579906 0.032787138075538 0\n1725818582733 0.03278713860085446 0\n1725818585630 0.032787137489362315 0\n1725818588483 0.03278715940903956 0\n1725818591300 0.03278713860169919 0",
+                        "training_f1_score": "1725818564604 0.9866457331099132 0\n1725818567808 0.9864879392915524 0\n1725818570682 0.9864879392915524 0\n1725818573878 0.9864879392915524 0\n1725818577064 0.9873204554594752 0\n1725818579906 0.9864879392915524 0\n1725818582733 0.9864879392915524 0\n1725818585630 0.9864879392915524 0\n1725818588483 0.9864879392915524 0\n1725818591300 0.9864879392915524 0",
+                        "training_recall_score": "1725818564604 0.9866826020146833 0\n1725818567808 0.9865118661430766 0\n1725818570682 0.9865118661430766 0\n1725818573878 0.9865118661430766 0\n1725818577064 0.9873655455011098 0\n1725818579906 0.9865118661430766 0\n1725818582733 0.9865118661430766 0\n1725818585630 0.9865118661430766 0\n1725818588483 0.9865118661430766 0\n1725818591300 0.9865118661430766 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "None",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "321",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "0.007092959651178164"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "phase": "hyperparameter_optimization",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "capable-cow-299",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:45.201764\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"a9875abb9c74410a8a952e1879654b51\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:48.374614\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"0fb69230903c4e73aed583831339a6a9\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:51.281048\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"e2038e3cec48414f8e5d59defc987e96\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:54.477424\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b3fec991fae14dfbb02a58ba35ff2bdf\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:02:57.649161\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"9c73a4d84ec84855b2e5e064b2528835\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:00.471291\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"4b75c59f744e44208206ca1087761d29\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:03.289177\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3a69172a2fae43d6a1746e2533a22b9b\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:06.179397\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"d62e7b42666c4cb999ddbc4f6e36479c\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:09.041614\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"7689a85cc0544477b818d132ebaa909f\"}, {\"run_id\": \"8cfef012c1aa4f2ba7babb161b0c9be6\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:12.084865\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"3481e714c86c4c08ac5b7e4a62e58785\"}]",
+                        "mlflow.source.type": "LOCAL"
+                    },
+                    "artifacts": [
+                        "training_roc_curve.png",
+                        "model",
+                        "training_precision_recall_curve.png",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                },
+                {
+                    "run_id": "datasets",
+                    "run_name": "",
+                    "metrics": {},
+                    "params": {},
+                    "tags": {},
+                    "artifacts": []
+                },
+                {
+                    "run_id": "0de750e9a635481396d8768ab9a0801d",
+                    "run_name": "agreeable-newt-153",
+                    "metrics": {
+                        "training_score": "1725818595092 0.9873655455011098 0",
+                        "training_roc_auc": "1725818594491 0.9991406340964197 0",
+                        "training_accuracy_score": "1725818594491 0.9873655455011098 0",
+                        "training_precision_score": "1725818594491 0.9873078591012847 0",
+                        "training_log_loss": "1725818594491 0.027806736125683743 0",
+                        "training_f1_score": "1725818594491 0.9873204554594752 0",
+                        "training_recall_score": "1725818594491 0.9873655455011098 0"
+                    },
+                    "params": {
+                        "tol": "0.0001",
+                        "penalty": "l2",
+                        "class_weight": "None",
+                        "random_state": "None",
+                        "solver": "lbfgs",
+                        "verbose": "0",
+                        "fit_intercept": "True",
+                        "max_iter": "641",
+                        "dual": "False",
+                        "warm_start": "False",
+                        "l1_ratio": "None",
+                        "multi_class": "deprecated",
+                        "n_jobs": "None",
+                        "intercept_scaling": "1",
+                        "C": "6.789737183346761"
+                    },
+                    "tags": {
+                        "estimator_class": "sklearn.linear_model._logistic.LogisticRegression",
+                        "mlflow.user": "mariusayrault",
+                        "estimator_name": "LogisticRegression",
+                        "mlflow.source.git.commit": "af1a67c8ea08de94f29fefb9daeffbaabd103eaa",
+                        "mlflow.runName": "agreeable-newt-153",
+                        "mlflow.source.name": "app.py",
+                        "mlflow.log-model.history": "[{\"run_id\": \"0de750e9a635481396d8768ab9a0801d\", \"artifact_path\": \"model\", \"utc_time_created\": \"2024-09-08 18:03:15.099268\", \"flavors\": {\"python_function\": {\"model_path\": \"model.pkl\", \"predict_fn\": \"predict\", \"loader_module\": \"mlflow.sklearn\", \"python_version\": \"3.12.2\", \"env\": {\"conda\": \"conda.yaml\", \"virtualenv\": \"python_env.yaml\"}}, \"sklearn\": {\"pickled_model\": \"model.pkl\", \"sklearn_version\": \"1.5.1\", \"serialization_format\": \"cloudpickle\", \"code\": null}}, \"model_uuid\": \"b30117a0109744a7a6592ddbaf24ae57\"}]",
+                        "experiment_name": "exp_LogisticRegression",
+                        "mlflow.source.type": "LOCAL",
+                        "model_version": "logistic_regression_000"
+                    },
+                    "artifacts": [
+                        "training_roc_curve.png",
+                        "model",
+                        "training_precision_recall_curve.png",
+                        "estimator.html",
+                        "training_confusion_matrix.png"
+                    ]
+                }
+            ]
         },
         {
             "experiment_id": ".trash",

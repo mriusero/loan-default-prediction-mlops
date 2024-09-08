@@ -1,14 +1,13 @@
 import streamlit as st
 from ...models import run_logr_pipeline, run_rf_pipeline
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.pipeline import Pipeline
 
 def get_data_splits():
     """
     Extrait les ensembles de données X_train, y_train, X_val, y_val, X_test, y_test
-    à partir des données prétraitées.
-
-    Args:
-    - preprocessed_data (dict): Dictionnaire contenant les données prétraitées.
-      Les clés doivent être 'Loan_Data_train', 'Loan_Data_val', 'Loan_Data_test'.
+    à partir des données prétraitées, et équilibre les classes.
 
     Returns:
     - X_train (DataFrame): Données d'entraînement, sans la colonne cible.
@@ -25,20 +24,38 @@ def get_data_splits():
     df_val = preprocessed_data['Loan_Data_val']
     df_test = preprocessed_data['Loan_Data_test']
 
-    # Supposons que la colonne cible soit nommée 'target'
-    target_column = 'target'
+    # Supposons que la colonne cible soit nommée 'default'
+    target_column = 'default'
 
     # Séparation des caractéristiques et des cibles pour chaque ensemble de données
-    X_train = df_train.drop(columns=['default'])
-    y_train = df_train['default']
+    X_train = df_train.drop(columns=[target_column])
+    y_train = df_train[target_column]
 
-    X_val = df_val.drop(columns=['default'])
-    y_val = df_val['default']
+    X_val = df_val.drop(columns=[target_column])
+    y_val = df_val[target_column]
 
-    X_test = df_test.drop(columns=['default'])
-    y_test = df_test['default']
+    X_test = df_test.drop(columns=[target_column])
+    y_test = df_test[target_column]
 
-    return X_train, y_train, X_val, y_val, X_test, y_test
+    # Création du pipeline pour le suréchantillonnage et le sous-échantillonnage
+    over_sampler = SMOTE()
+    under_sampler = RandomUnderSampler()
+
+    # Pipeline d'équilibrage
+    pipeline = Pipeline([
+        ('o', over_sampler),
+        ('u', under_sampler)
+    ])
+
+    # Rééchantillonnage pour l'ensemble d'entraînement
+    X_train_balanced, y_train_balanced = pipeline.fit_resample(X_train, y_train)
+
+    # Les ensembles de validation et de test ne sont pas rééchantillonnés
+    # car ils doivent conserver leur distribution d'origine pour évaluation
+    X_val_balanced, y_val_balanced = X_val, y_val
+    X_test_balanced, y_test_balanced = X_test, y_test
+
+    return X_train_balanced, y_train_balanced, X_val_balanced, y_val_balanced, X_test_balanced, y_test_balanced
 
 
 def handle_models():

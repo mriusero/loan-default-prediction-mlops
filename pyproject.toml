@@ -25,6 +25,7 @@ nbconvert = "^7.16.4"
 statsmodels = "^0.14.2"
 plotly-express = "^0.4.1"
 ipywidgets = "^8.1.5"
+imblearn = "^0.0"
 
 [tool.poetry.group.dev.dependencies]
 plotly = "^5.24.0"
