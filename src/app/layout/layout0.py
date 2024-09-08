@@ -1,24 +1,26 @@
 import streamlit as st
+
+
 def page_0():
     st.markdown('<div class="header">#0 Project Overview_</div>', unsafe_allow_html=True)
     st.text("")
     st.text("Here is an overview of the project")
     st.markdown("---")
     st.markdown("""
-    ## **1. Introduction 📝**
+    ## **1. Introduction**
     """)
     st.code("""
     Personal loans are a significant source of revenue for retail banks, but they come with inherent risks of defaults.
-     
+
     Our goal is to build a predictive model to estimate the probability of default for each customer based on their 
     characteristics. Accurate predictions will help the bank allocate sufficient capital to cover potential losses, 
     thus ensuring financial stability.
     """)
 
     st.markdown("""
-    ## **2. Project Overview 📊**
+    ## **2. Project Overview**
 
-    ### **Objective 🎯**
+    ### **Objective**
     """)
     st.code("""
      * Develop an end-to-end MLOps pipeline to predict loan defaults.
@@ -26,7 +28,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ### **Tools & Technologies 🛠️**
+    ### **Tools & Technologies**
     """)
     st.code("""
      * MLflow: model tracking and management.
@@ -37,9 +39,9 @@ def page_0():
     """)
 
     st.markdown("""
-    ## **3. ML Lifecycle 🔄**
+    ## **3. ML Lifecycle**
 
-    ### **3.1 Planning 🗺️**
+    ### **3.1 Planning**
     """)
     st.code("""
      * Business Context: high default rates on personal loans threaten the bank's revenue.
@@ -48,7 +50,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ### **3.2 Data Preparation 🧹**
+    ### **3.2 Data Preparation**
     """)
     st.code("""
      * Data Cleaning: handling missing values and removing outliers.
@@ -57,7 +59,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ### **3.3 Model Engineering ⚙️**
+    ### **3.3 Model Engineering**
     """)
     st.code("""
      * Algorithms Used: Gradient Boosting Classifier, XGBoost Classifier.
@@ -66,7 +68,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ### **3.4 Model Evaluation 📈**
+    ### **3.4 Model Evaluation**
     """)
     st.code("""
      * Evaluation Metrics: Accuracy, F1 Score, Precision, Recall.
@@ -75,7 +77,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ### **3.5 Model Deployment 🚢**
+    ### **3.5 Model Deployment**
     """)
     st.code("""
      * Deployment on AWS: model was containerized using Docker and deployed to an AWS EC2 instance.
@@ -84,7 +86,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ## **4. Monitoring and Maintenance 🛡️**
+    ## **4. Monitoring and Maintenance**
     """)
     st.code("""
      * Model Monitoring: set up data drift detection and model performance monitoring.
@@ -93,7 +95,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ## **5. Challenges and Solutions 🧩**
+    ## **5. Challenges and Solutions**
     """)
     st.code("""
      * Data Drift: implemented monitoring scripts to detect changes in data patterns over time.
@@ -104,7 +106,7 @@ def page_0():
     """)
 
     st.markdown("""
-    ## **6. Benefits of MLOps Implementation 🌟**
+    ## **6. Benefits of MLOps Implementation**
     """)
     st.code("""
      * Improved Efficiency: automated model training, deployment, and monitoring.

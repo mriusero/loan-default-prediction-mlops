@@ -45,10 +45,10 @@ class Preprocessor:
                     # Combine outlier indices
                     all_outliers = np.unique(np.concatenate((iqr_outlier_indices, z_outlier_indices)))
 
-                    if len(all_outliers) > 0:
-                        print(f"Removing outliers for column '{column}' in DataFrame '{key}':")
-                        print(df_cleaned.loc[all_outliers, [column]])
-                        print("-" * 40)
+                #    if len(all_outliers) > 0:
+                #        print(f"Removing outliers for column '{column}' in DataFrame '{key}':")
+                #        print(df_cleaned.loc[all_outliers, [column]])
+                #        print("-" * 40)
 
                     df_cleaned = df_cleaned.loc[~df_cleaned.index.isin(all_outliers)]
 
