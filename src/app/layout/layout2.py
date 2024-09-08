@@ -15,3 +15,28 @@ def page_2():
     with col2:
         st.markdown("## #Statistics_")
         st.dataframe(st.session_state.data.dataframes['Loan_Data'].describe())
+
+    st.markdown('---')
+    st.markdown("## #Preprocessed Data_")
+    col1, col2, col3 = st.columns(3)
+
+    def display_data_info(data_key, col):
+        with col:
+            st.markdown(f"### #{data_key}_")
+            preprocessed_data = st.session_state.processed_data
+            df = preprocessed_data[data_key]
+            n_rows, n_cols = df.shape
+            st.write(df)
+            st.write(f"Nombre de lignes : {n_rows}")
+            st.write(f"Nombre de colonnes : {n_cols}")
+
+            nan_percentage = df.isna().mean() * 100
+            st.markdown("### Pourcentage de NaN par colonne")
+            for column, percentage in nan_percentage.items():
+                st.text(f"{percentage:.2f} : {column} %")
+
+    # Utilisation de la fonction pour chaque colonne
+    display_data_info('Loan_Data_train', col1)
+    display_data_info('Loan_Data_val', col2)
+    display_data_info('Loan_Data_test', col3)
+

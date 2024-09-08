@@ -4,6 +4,7 @@ import os
 import streamlit as st
 
 from .components import start_mlflow_ui
+from ..data import Preprocessor
 from ..visualization import DataVisualizer
 
 update_message = 'Data loaded'
@@ -38,7 +39,7 @@ def main_layout():
         global update_message
         st.markdown('<div class="title">MLOps</div>', unsafe_allow_html=True)
         st.markdown("#### *Predicting Loan Default Risk Using MLOps in Retail Banking* ")
-        colA, colB, colC, colD = st.columns([2, 4, 4, 2])
+        colA, colB, colC = st.columns([1, 8, 1])
         with colA:
             # st.text("")
             github_button('https://github.com/mriusero/projet-sda-mlops')
@@ -49,25 +50,27 @@ def main_layout():
             if st.button('Mlflow UI'):
                 start_mlflow_ui()
 
-        with colC:
-            # st.text("")
-            st.text("")
-            st.link_button('Link 2',
-                           'https://www.something.com')
-        with colD:
-            # st.text("")
-            st.text("")
-            #if st.button('Update data'):
-            #    update_message = load_data(folder_path='')
-            #    st.sidebar.success(f"{update_message}")
-            #    print(update_message)
+        #with colC:
+        #    # st.text("")
+        #    st.text("")
+        #    st.link_button('Link 2',
+        #                   'https://www.something.com')
+
+
     with col2:
         st.text("")
         st.text("")
         st.text("")
-        st.text("Data Loading")
+        st.text("")
+        st.markdown("##### Data Loading")
         data = DataVisualizer()
         st.session_state.data = data
+
+        st.markdown("##### Preprocessing")
+        preprocessor = Preprocessor()
+        st.session_state.processed_data = preprocessor.preprocess_data()
+
+
 
     st.markdown('---')
 
