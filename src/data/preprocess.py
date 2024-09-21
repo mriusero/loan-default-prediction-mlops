@@ -73,6 +73,9 @@ class Preprocessor:
             df['normalized_fico_score'] = (df['fico_score'] - df['fico_score'].min()) / (
                     df['fico_score'].max() - df['fico_score'].min())
 
+            print(f"Min fico score measured: '{df['fico_score'].min()}'")
+            print(f"Max fico score measured: '{df['fico_score'].max()}'")
+
             # Conversion des colonnes entières en flottants
             int_columns = df.select_dtypes(include=['int64']).columns
             df[int_columns] = df[int_columns].astype(float)

@@ -107,7 +107,8 @@ def handle_models():
             run_rf_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
 
         if model_name == 'XgBoost':
-            run_xgboost_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
+            run_xgboost_pipeline(X_selected=X_selected, optimize=optimize, n_trials=n_trials, exp_name=exp_name)
+
 
         if model_name == 'LightGBM':
             run_lgb_pipeline(optimize=optimize, n_trials=n_trials, exp_name=exp_name)
