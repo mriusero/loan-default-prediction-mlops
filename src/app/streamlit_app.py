@@ -16,7 +16,7 @@ def load_css():
 
 def main_layout():
     from .components import github_button
-    from .layout import page_0, page_1, page_2, page_3, page_4, page_5
+    from .layout import page_0, page_1, page_2, page_3, page_4, page_5, page_6
 
     st.set_page_config(
         page_title="SDA-MLOps",
@@ -32,6 +32,7 @@ def main_layout():
                                          "#3 Experiments_",
                                          "#4 Prediction_",
                                          "#5 Mlflow Artifacts_",
+                                         "#6 Production model_"
                                          ])
     # -- LAYOUT --
     col1, col2 = st.columns([8, 4])
@@ -85,6 +86,8 @@ def main_layout():
         page_4()
     elif page == "#5 Mlflow Artifacts_":
         page_5()
+    elif page == "#6 Production model_":
+        page_6()
 
     st.sidebar.markdown("&nbsp;")
 

@@ -216,13 +216,17 @@ class ModelPipeline:
                 self.params = study.best_params
                 st.write("Best hyperparameters found: ", self.params)
 
-    def run_pipeline(self, optimize=False, n_trials=10):
+    def run_pipeline(self, X_selected, optimize=False, n_trials=10):
         """Run the complete ML pipeline."""
         print(f"\n-------- Machine Learning Experience Pipeline ---------")
         print(f"Experiment: '{self.experiment_name}'")
 
         from src.app import get_data_splits
         X_train, y_train, X_val, y_val, X_test, y_test = get_data_splits()
+
+        X_train = X_train[X_selected]
+        X_val = X_val[X_selected]
+        X_test = X_test[X_selected]
 
         if optimize:
             self.optimize_hyperparameters(X_train, y_train, X_val, y_val, n_trials)
@@ -260,15 +264,9 @@ class ModelPipeline:
         if self.model is None:
             raise ValueError("Model is not initialized or trained.")
 
-        if 'customer_id' not in X.columns:
-            raise ValueError("The input DataFrame X must contain a 'customer_id' column.")
-
         predictions = self.model.predict(X)
 
-        return pd.DataFrame({
-            'customer_id': X['customer_id'],
-            'prediction': predictions
-        })
+        return predictions
 
     @staticmethod
     def load_model(model_uri):
