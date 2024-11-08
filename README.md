@@ -1,16 +1,53 @@
-# projet-sda-mlops
+# Loan Default Prediction with MLOps in Retail Banking
 
-This repository contains a streamlit application template designed for MLOps. 
+This project carried out in a learning context develops a predictive model to assess the default risk of personal loans in retail banking. By implementing an MLOps pipeline, we ensure efficient, scalable, and reliable deployment of the best-performing model on Amazon Web Services (AWS) using Streamlit.
+
+[See Overview](project-overview.pdf)
+
+## Objectives
+
+Personal loans represent a substantial revenue source for retail banks but carry significant default risks. The objective of this project is to:
+- Build a predictive model that estimates each customer's probability of default.
+- Develop a comprehensive MLOps pipeline for model deployment and monitoring on AWS.
 
 ## Table of Contents
 
+- [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Running Tests](#running-tests)
-- [Contributing](#contributing)
+- [Tools & Technologies](#tools--technologies)
+- [MLOps Lifecycle Overview](#mlops-lifecycle-overview)
+- [Experiment Tracking & Management](#experiment-tracking--management)
+- [Model Deployment](#model-deployment)
+- [Conclusion](#conclusion)
 - [License](#license)
+
+## Project Structure
+
+The project follows a modular structure, with the following directories and files:
+
+```
+MLOps
+.
+├── Dockerfile             # Docker configuration file
+├── LICENSE                # License information
+├── README.md              # Project documentation
+├── app.py                 # Main application entry point
+├── data                   # Directory for raw and processed data
+├── notebooks              # Jupyter Notebooks for EDA
+├── poetry.lock            # Poetry lock file for dependencies
+├── pyproject.toml         # Poetry configuration file
+├── saved_models           # Directory to save trained models with pickle
+├── src                    # Source code 
+│   ├── app                # Streamlit app layout & components
+│   ├── data               # Data loading and processing 
+│   ├── features           # Feature engineering 
+│   ├── models             # Model development 
+│   └── visualization      # Visualization
+└── tests                  # Unit test files
+```
+
 
 ## Prerequisites
 
@@ -58,7 +95,7 @@ You can run the application locally or inside a Docker container.
 To run the application locally, execute the following command:
 
 ```bash
-python streamlit run app.py
+ streamlit run app.py
 ```
 
 ### Running with Docker
@@ -75,44 +112,48 @@ python streamlit run app.py
    docker run -p 8501:8501 streamlit
    ```
    
-   This will start the application, and you can access it in your web browser at `http://localhost:8501`.
+This will start the application, and you can access it in your web browser at `http://localhost:8501`.
 
-## Project Structure
+## Tools & Technologies
 
-The project follows a modular structure, with the following directories and files:
+- **MLflow**: For tracking, managing, and visualizing model performance over time.
+- **Streamlit**: Web app framework for deploying the model in an interactive dashboard.
+- **AWS**: Cloud platform for scalability and secure hosting (specifically AWS ECR).
+- **Git & Docker**: For version control and consistent, containerized deployment.
 
-```
-MLOps
-.
-├── Dockerfile             # Docker configuration file
-├── LICENSE                # License information
-├── README.md              # Project documentation
-├── app.py                 # Main application entry point
-├── data                   # Directory for raw and processed data
-├── notebooks              # Jupyter Notebooks for EDA
-├── poetry.lock            # Poetry lock file for dependencies
-├── pyproject.toml         # Poetry configuration file
-├── saved_models           # Directory to save trained models with pickle
-├── src                    # Source code 
-│   ├── app                # Streamlit app layout & components
-│   ├── data               # Data loading and processing 
-│   ├── features           # Feature engineering 
-│   ├── models             # Model development 
-│   └── visualization      # Visualization
-└── tests                  # Unit test files
-```
+## MLOps Lifecycle Overview
 
-## Contributing
+This project follows an end-to-end MLOps lifecycle, organized as follows:
 
-Contributions are welcome! Please fork this repository and submit a pull request for any feature requests, bug fixes, or improvements.
+1. **Business Context**: High default rates on personal loans threaten the bank's revenue.
+2. **Metrics for Success**: Key metrics include AUC-ROC, Precision-Recall AUC, F1-Score, Recall, and Precision.
+3. **MLOps Stages**:
+   - **Data Collection & Preprocessing**: Initial data preparation and cleansing.
+   - **Exploratory Data Analysis (EDA)**: Outlier detection, variable relationships, and data quality analysis.
+   - **Feature Engineering**: Creating features such as the Debt-to-Income Ratio and handling missing values.
+   - **Model Selection**: Testing Random Forest, XGBoost, and LightGBM classifiers.
+   - **Hyperparameter Tuning**: Using Optuna for model optimization.
 
-1. Fork the Repository
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## Experiment Tracking & Management
+
+- **MLflow**: Tracks each experiment, capturing metrics such as Accuracy, F1 Score, Precision, and Recall. This enables easier version control and experiment reproducibility.
+- **Optuna**: Used for hyperparameter tuning to improve model performance.
+
+## Model Deployment
+
+- **Containerization**: The model is containerized using Docker for consistent deployment across environments.
+- **AWS ECR**: The containerized model is deployed on AWS Elastic Container Registry for secure storage and scalability.
+- **CI/CD Pipeline**: Automated with GitHub Actions, including steps for code building, testing, containerization, and deployment to AWS.
+
+## Conclusion
+
+- **Improved Efficiency**: Automation of training, deployment, and monitoring.
+- **Enhanced Collaboration**: Facilitates teamwork between data science and DevOps.
+- **Accelerated Deployment**: Model deployment time reduced from weeks to hours.
+- **Error Reduction**: Consistent environments with Docker and CI/CD.
+
+This project demonstrates the effectiveness of MLOps for developing and deploying robust, scalable, and explainable machine learning solutions in retail banking.
 
 ## License
-```
+
 This project is licensed under the terms of the [MIT License](LICENSE).
-```
